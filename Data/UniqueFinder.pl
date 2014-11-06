@@ -12,11 +12,14 @@ my $beg_time = time;
 my @unique_records;
 my @recordnumbers;
 my $tiedosto = $ARGV[0];
+my $linecount;
 
 if( ! defined $tiedosto )
 {
   die "Usage: perl UniqueFinder.pl inputfile\n";
 }
+
+my $log = 'log.txt';
 
 my $outputfile = $tiedosto . ".uniq";
 
@@ -32,6 +35,7 @@ if (-e $outputfile)
 
 open (my $inputfile, '<:utf8', $tiedosto);
 open (OUTPUT, '>:utf8', $outputfile);
+open (LOG, '>>:utf8', $log);
 
 print "Processing file \'$tiedosto\', writing into \'$outputfile\'...\n";
 
@@ -42,7 +46,8 @@ while (<$inputfile>)
 	if ($field eq 'LOW')
 	{
 		push (@recordnumbers, $id);
-	}	
+	}
+	$linecount++;	
 }
 
 my $totalnumberofrecords = uniq @recordnumbers;
@@ -64,8 +69,9 @@ my $uniquecount = @unique;
 my $percentage = $uniquecount / $totalnumberofrecords * 100;
 $percentage = sprintf("%.1f", $percentage);
 
+print $linecount . " lines of data processed. ";
 print $uniquecount . " / " . $totalnumberofrecords . " records ($percentage %) had only one LOW-tag.\n";
-print "Writing unique records into file.\n";
+print "Writing unique records into file...\n";
 
 seek $inputfile, 0, 0; # Reset filehandle position for another iteration
 
@@ -78,9 +84,29 @@ while (<$inputfile>)
 }
 
 my $end_time = time;
-my $time = ($end_time - $beg_time) / 60;
+my $time = ($end_time - $beg_time);
+my $minutes = sprintf("%.1f", ($time / 60));
+$time = sprintf("%.1f", $time);
 
-print "Done, processing took $time minutes.\n";
+# Log the process
 
+print LOG localtime . "\nInput file: $tiedosto
+Output file: $outputfile
+Processed lines: $linecount
+Total number of records: $totalnumberofrecords
+Unique records: $uniquecount
+Percentage of unique records: $percentage %\n";
+
+if ($minutes > 1)
+{
+	print "Done, processing took $time seconds ($minutes minutes).\n";
+	print LOG "Processing time: $time seconds ($minutes minutes)\n";
+}
+else
+{
+	print "Done, processing took $time seconds.\n";
+	print LOG "Processing time: $time seconds\n";
+}
+print LOG ("-" x 50) . "\n";
 close $inputfile;
 close OUTPUT;

@@ -34,8 +34,8 @@ open (my $inputfile, '<:utf8', $tiedosto);
 # Extract language codes, content / carrier types (336-/337), YKL-classification codes and keywords into arrays
 
 my @languages;
-#my @336;
-#my @337;
+my @sisaltotyyppi;
+my @mediatyyppi;
 my @YKL;
 my @keywords;
 my @thesauri;
@@ -75,9 +75,34 @@ while (<$inputfile>)
 			chomp;
 			# Push $2-subfields into @thesauri
 			if (substr($_, 0, 1) =~ /2/) { push (@thesauri, substr($_, 1)); next; }
-			if (substr($_, 0, 1) =~ /9/) { next; }
+			if (substr($_, 0, 1) =~ /9/) { next; } # Throw away fields like $9FENNI<KEEP>
 			length($_) > 2 ? push (@keywords, ($_ = (substr($_, 0, 1) . "," . substr($_, 1)))) : next;
-			#print $_ . "\n";
+		}
+	}
+
+	elsif ($fieldCode eq ('336'))
+	{
+		my @sisaltotyyppi_split = split('\$\$a', $fieldContent);
+		for (@sisaltotyyppi_split)
+		{
+			chomp;
+			unless (length $_ < 2) 
+			{
+				push (@sisaltotyyppi, $_);
+			}
+		}
+	}
+
+	elsif ($fieldCode eq ('337'))
+	{
+		my @mediatyyppi_split = split('\$\$a', $fieldContent);
+		for (@mediatyyppi_split)
+		{
+			chomp;
+			unless (length $_ < 2) 
+			{
+				push (@mediatyyppi, $_);
+			}
 		}
 	}
 
@@ -87,11 +112,17 @@ while (<$inputfile>)
 @YKL = sort @YKL;
 @keywords = sort @keywords;
 @thesauri = sort @thesauri;
+@sisaltotyyppi = sort @sisaltotyyppi;
+@mediatyyppi = sort @mediatyyppi;
 
 my $uniqueKeywords = uniq @keywords;
 my $thesauri = uniq @thesauri;
+my $sisaltotyyppi = uniq @sisaltotyyppi;
+my $mediatyyppi = uniq @mediatyyppi;
 
-print "$uniqueKeywords keywords found from $thesauri thesauri.\n";
+print "$uniqueKeywords keywords found from $thesauri thesauri.
+$sisaltotyyppi content types
+$mediatyyppi media types\n";
 
 close $inputfile;
 #close OUTPUT;

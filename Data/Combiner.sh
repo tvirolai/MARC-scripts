@@ -1,4 +1,5 @@
 #!/bin/bash
+# Yhdistä kaikki *-kanta.stripped.uniq -tiedostot yhteen tiedostoon
 
 echo
 

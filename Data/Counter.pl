@@ -32,6 +32,8 @@ while (<$inputfile>)
 }
 
 my $totalnumberofrecords = uniq @recordnumbers;
+my $averageRecord = sprintf("%.0f", ($linecount / $totalnumberofrecords));
 
-print "The file $tiedosto contains $totalnumberofrecords records.\n";
+print "The file $tiedosto contains $totalnumberofrecords records in $linecount lines.
+The average length of a record is $averageRecord lines.\n";
 close $inputfile;

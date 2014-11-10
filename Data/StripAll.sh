@@ -1,4 +1,6 @@
 #!/bin/bash
+# Aja ebrary-tietueet, opinnäytteet, osakohteet ja loput tietueet
+# erittelevä skripti (Stripper.pl) kaikille kannoille
 
 echo
 

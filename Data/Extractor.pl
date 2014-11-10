@@ -29,7 +29,13 @@ if (-e $outputfile)
 }
 
 open (my $inputfile, '<:utf8', $tiedosto);
-#open (OUTPUT, '>:utf8', $outputfile);
+open (my $KIELET, '>:utf8', '041.txt');
+open (my $SISALTOTYYPPI, '>:utf8', '336.txt');
+open (my $MEDIATYYPPI, '>:utf8', '337.txt');
+open (my $YKL, '>:utf8', '084_ykl.txt');
+open (my $KEYWORDS, '>:utf8', '650_651_kentat.txt');
+open (my $THESAURI,'>:utf8', '650_651_2.txt');
+
 
 # Extract language codes, content / carrier types (336-/337), YKL-classification codes and keywords into arrays
 
@@ -124,5 +130,40 @@ print "$uniqueKeywords keywords found from $thesauri thesauri.
 $sisaltotyyppi content types
 $mediatyyppi media types\n";
 
+for (@languages)
+{
+	print $KIELET $_ . "\n";
+}
+
+for (@YKL)
+{
+	print $YKL $_ . "\n";
+}
+
+for (@sisaltotyyppi)
+{
+	print $SISALTOTYYPPI $_ . "\n";
+}
+
+for (@mediatyyppi)
+{
+	print $MEDIATYYPPI $_ . "\n";
+}
+
+for (@keywords)
+{
+	print $KEYWORDS $_ . "\n";
+}
+
+for (@thesauri)
+{
+	print $THESAURI $_ . "\n";
+}
+
 close $inputfile;
-#close OUTPUT;
+close $KIELET;
+close $SISALTOTYYPPI;
+close $MEDIATYYPPI;
+close $YKL;
+close $KEYWORDS;
+close $THESAURI;

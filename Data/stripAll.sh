@@ -6,6 +6,6 @@ echo
 
 for file in ./Kannat/*-kanta
 	do 
-		perl Stripper.pl $file
+		perl stripper.pl $file
 done
 exit 0

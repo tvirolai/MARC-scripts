@@ -6,7 +6,7 @@ echo
 
 for file in ./Kannat/*-kanta.stripped
 	do 
-		perl UniqueFinder.pl $file
+		perl uniqueFinder.pl $file
 done
 
 exit 0

@@ -106,11 +106,6 @@ $ebraryPercentage = sprintf("%.1f", $ebraryPercentage);
 my $othersPercentage = ($others / $total * 100);
 $othersPercentage = sprintf("%.1f", $othersPercentage);
 
-print "\nTiedostossa \'$tiedosto\' on yhteensä $total tietuetta, joista\n
-$ebrary Ebrary-tietuetta ($ebraryPercentage %)
-$poikaset poikastietuetta ($poikasetPercentage %)
-$AMK AMK-opinnäytettä ($AMKpercentage %)
-$others muuta tietuetta ($othersPercentage %)\n\n";
 
 ########################
 
@@ -169,14 +164,36 @@ my $time = ($end_time - $beg_time);
 my $minutes = sprintf("%.1f", ($time / 60));
 $time = sprintf("%.1f", $time);
 
+# Log the process
+
+print LOG localtime . "\nInput file: $tiedosto
+
+Output files: $outputfile, $outputEbrary, $outputOpparit, $outputPoikaset
+
+$total records in total
+$ebrary Ebrary-tietuetta ($ebraryPercentage %)
+$poikaset poikastietuetta ($poikasetPercentage %)
+$AMK AMK-opinnäytettä ($AMKpercentage %)
+$others muuta tietuetta ($othersPercentage %)\n\n";
+
+print "\nTiedostossa \'$tiedosto\' on yhteensä $total tietuetta, joista\n
+$ebrary Ebrary-tietuetta ($ebraryPercentage %)
+$poikaset poikastietuetta ($poikasetPercentage %)
+$AMK AMK-opinnäytettä ($AMKpercentage %)
+$others muuta tietuetta ($othersPercentage %)\n\n";
+
 if ($minutes > 1)
 {
-	print "Käsittelyyn kului $time sekuntia ($minutes minuuttia).\n";
+	print "Done, processing took $time seconds ($minutes minutes).\n";
+	print LOG "Processing time: $time seconds ($minutes minutes)\n";
 }
 else
 {
-	print "Käsittelyyn kului $time sekuntia.\n";
+	print "Done, processing took $time seconds.\n";
+	print LOG "Processing time: $time seconds\n";
 }
+
+print LOG ("-" x 50) . "\n";
 
 close $inputfile;
 close $STRIPPED;
@@ -184,15 +201,3 @@ close $EBRARY;
 close $OPPARIT;
 close $POIKASET;
 close LOG;
-
-# 1. Ebrary-tapaukset
-# 006268388 500   L $$aKäytettävissä ebrary-palvelun kautta.
-# 006268388 7100  L $$aebrary, Inc.
-# 006268388 85640 L $$uhttps://login.ezproxy.turkuamk.fi/login?url=http://site.ebrary.com/lib/turkuamk/Doc?id=10018408$$5$$5AURA
-
-# 2. AMK-opinnäytteet
-# 006209790 509   L $$aAMK-opinnäytetyö :$$cVaasan ammattikorkeakoulu, Liiketalouden koulutusohjelma.
-# 005841970 509   L $$aYlempi AMK-opinnäytetyö :$$cSavonia ammattikorkeakoulu, Matkailu- ja ravitsemisala, Palveluliiketoiminnan koulutusohjelma.
-
-# 3. Osakohteiden poikastietueet
-# 7730	|7 nnjm |w (FIN01)006714667 |t Joulun toivekonsertti / toimitus Virpi Kari. - |d Helsinki : F-Kustannus, ℗ 2013 - |m 1 sävelmäkokoelma, 1 CD-äänilevy. - |o VL-Musiikki VLCD-1367. - |g Raita 8

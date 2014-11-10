@@ -33,7 +33,7 @@ my $outputPoikaset = $tiedosto . ".poikaset";
 
 if (-e ($outputfile || $outputEbrary || $outputOpparit || $outputPoikaset))
 {
-	print "Outputfile(s) exists. Overwrite (y/n)? ";
+	print "Outputfile(s) exist. Overwrite (y/n)? ";
 	chomp(my $choice = <STDIN>);
 	if ($choice eq "n")
 	{
@@ -48,8 +48,6 @@ open (my $OPPARIT, '>:utf8', $outputOpparit);
 open (my $POIKASET, '>:utf8', $outputPoikaset);
 open (LOG, '>>:utf8', $log);
 
-#print "Processing file \'$tiedosto\', writing into \'$outputfile\'...\n";
-
 while (<$inputfile>)
 {
 	my $id = substr($_, 0, 9); # Record id
@@ -61,7 +59,7 @@ while (<$inputfile>)
 		push (@total, $id);
 
 	}
-	elsif ($fieldcode eq '509' && $content =~ /AMK-opinn/i) # Opinnäytteet
+	elsif ($fieldcode eq '509' && ($content =~ /(AMK-opinn(.+)|erikoistyö(.+))(ammattik|oppilait)/i)) # Opinnäytteet
 	{
 		push (@AMK, $id);
 		push (@total, $id);
@@ -84,11 +82,10 @@ while (<$inputfile>)
 @others = uniq (sort @others);
 @total = uniq (sort @total);
 
-# Strip duplicate ID's from @others
+# Strip ID's existing in other arrays from @others
 
 my @toStrip = sort (@ebrary, @AMK, @poikaset);
 my %toStrip = map { $_ => 1 } @toStrip;
-
 @others = grep {! exists($toStrip{$_}) } @others;
 
 my $ebrary = @ebrary;
@@ -106,6 +103,11 @@ $ebraryPercentage = sprintf("%.1f", $ebraryPercentage);
 my $othersPercentage = ($others / $total * 100);
 $othersPercentage = sprintf("%.1f", $othersPercentage);
 
+print "\nTiedostossa \'$tiedosto\' on yhteensä $total tietuetta, joista\n
+$ebrary Ebrary-tietuetta ($ebraryPercentage %)
+$poikaset poikastietuetta ($poikasetPercentage %)
+$AMK AMK-opinnäytettä ($AMKpercentage %)
+$others muuta tietuetta ($othersPercentage %)\n\n";
 
 ########################
 
@@ -156,7 +158,6 @@ while (<$inputfile>)
 	exists($others{$id}) ? print $STRIPPED $_ : next;
 }
 
-
 ########################
 
 my $end_time = time;
@@ -171,12 +172,6 @@ print LOG localtime . "\nInput file: $tiedosto
 Output files: $outputfile, $outputEbrary, $outputOpparit, $outputPoikaset
 
 $total records in total
-$ebrary Ebrary-tietuetta ($ebraryPercentage %)
-$poikaset poikastietuetta ($poikasetPercentage %)
-$AMK AMK-opinnäytettä ($AMKpercentage %)
-$others muuta tietuetta ($othersPercentage %)\n\n";
-
-print "\nTiedostossa \'$tiedosto\' on yhteensä $total tietuetta, joista\n
 $ebrary Ebrary-tietuetta ($ebraryPercentage %)
 $poikaset poikastietuetta ($poikasetPercentage %)
 $AMK AMK-opinnäytettä ($AMKpercentage %)

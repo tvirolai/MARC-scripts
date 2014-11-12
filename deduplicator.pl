@@ -37,29 +37,31 @@ while (<$inputfile>)
 	{
 		push (@allRecordIDs, $id); # Collect every record ID using leader as source
 	}
-	push (@content, $_);
+	push (@content, $_); # Read every line into array
 }
 
 @deduplicatedRecordIDs = uniq @allRecordIDs;
 my $allRecordIDs = @allRecordIDs;
 my $deduplicatedRecordIDs = @deduplicatedRecordIDs;
 
-seek $inputfile, 0, 0; # Reset filehandle position
-
 # Print unique records to file
 
 open (my $output, '>:utf8', $outputfile);
 
-my @deduplicatedContent = uniq @content;
+my @deduplicatedContent = uniq @content; # Discard duplicate lines (= records) from @content
 for (@deduplicatedContent)
 {
 	print $output $_;
 }
 
+# Calculate and report processing details
+
 my $end_time = time;
 my $time = ($end_time - $beg_time);
 my $minutes = sprintf("%.1f", ($time / 60));
 $time = sprintf("%.1f", $time);
+
+print "The file $tiedosto contains $allRecordIDs records in total, $deduplicatedRecordIDs different records when duplicates are removed.\n";
 
 if ($minutes > 1)
 {
@@ -70,6 +72,5 @@ else
 	print "Done, processing took $time seconds.\n";
 }
 
-print "The file $tiedosto contains $allRecordIDs records in total, $deduplicatedRecordIDs different records when duplicates are removed.\n";
-
 close $inputfile;
+close $output;

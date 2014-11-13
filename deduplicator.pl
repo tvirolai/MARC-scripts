@@ -2,6 +2,7 @@
 
 # Strip duplicate Aleph Sequential -records from file
 # Generates new file with duplicate entries removed
+# Note: This script will NOT work for large files, since it reads all data into memory for processing
 
 use strict;
 use utf8;

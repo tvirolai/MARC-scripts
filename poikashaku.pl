@@ -1,6 +1,6 @@
 #!/bin/perl -w
 
-# Count the numbers of Aleph Seq -records in file
+# Laskee osakohteet (poikastietueet) Aleph Sequential -tiedostosta
 
 use strict;
 use utf8;

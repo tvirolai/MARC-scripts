@@ -12,28 +12,25 @@ binmode(STDOUT, ':utf8');
 my $beg_time = time;
 
 my $tiedosto = $ARGV[0];
+my $log = 'deduplication_log.txt';
+my $outputfile = $tiedosto . '.deduplicated';
 
 if( ! defined $tiedosto )
 {
-  die "Usage: perl deduplicator2.pl inputfile\n";
+  die "Usage: perl deduplicator.pl inputfile\n";
 }
 
 open (my $inputfile, '<:utf8', $tiedosto);
-
-my $outputfile = $tiedosto . '.deduplicated';
-#my $outputfile2 = $tiedosto . '.duplicates';
-
 open (my $output, '>:utf8', $outputfile);
-#open (my $output_duplicates, '>:utf8', $outputfile2);
-
-#my $log = 'deduplication_log.txt';
+open (LOG, '>>:utf8', $log);
 
 my %readIDs;
 my @allRecordIDs;
 my @deduplicatedIDs;
 my $currentRecord = substr(<$inputfile>, 0, 9);
 push (@deduplicatedIDs, $currentRecord);
-my $deduplicatedRecordcount = 1; # This is initialized to 1 as the value is incremented when the processed record changes - not on first iteration
+# This is initialized to 1 as the value is incremented when the processed record changes - not on first iteration
+my $deduplicatedRecordcount = 1;
 my $recordCount = 0;
 my $skipCount = 0;
 
@@ -72,17 +69,15 @@ my $time = ($end_time - $beg_time);
 my $minutes = sprintf("%.1f", ($time / 60));
 $time = sprintf("%.1f", $time);
 
-print "$deduplicatedRecordcount records left after deduplication ($recordCount records in total, $skipCount duplicates skipped).\n";
+my $result = localtime . "\nInput file: $tiedosto
+Output file: $outputfile
+$deduplicatedRecordcount records left after deduplication ($recordCount records in total, $skipCount duplicates skipped).
+Processing took $time seconds ($minutes minutes).\n";
+$result .= ("-" x 50) . "\n";
 
-if ($minutes > 1)
-{
-	print "Done, processing took $time seconds ($minutes minutes).\n";
-}
-else
-{
-	print "Done, processing took $time seconds.\n";
-}
+print $result;
+print LOG $result;
 
 close $inputfile;
 close $output;
-#close $output_duplicates;
+close LOG;

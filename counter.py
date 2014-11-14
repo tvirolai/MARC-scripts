@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*
+# Reports the number of distinct Aleph Sequential -records in a file
 
 import sys
 

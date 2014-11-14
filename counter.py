@@ -15,8 +15,8 @@ recordCount = []
 lineCount = 0
 
 for line in inputfile:
-	id = line[:8]
-	field = line[9:12]
+	id = line[:9]
+	field = line[10:13]
 	if (field == "LOW"):
 		recordCount.append(id)
 	lineCount += 1	

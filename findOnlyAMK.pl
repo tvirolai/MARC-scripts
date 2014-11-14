@@ -1,10 +1,9 @@
 #!/bin/perl -w
 
-# Find all records that have only AMK-lowtags.
+# Find all records that have only LOW-tags of AMK-libraries.
 
 use strict;
 use utf8;
-use List::MoreUtils qw(uniq);
 
 binmode(STDOUT, ':utf8');
 
@@ -16,7 +15,7 @@ if( ! defined $tiedosto )
   die "Usage: perl findOnlyAMK.pl inputfile\n";
 }
 
-#my $log = 'log.txt';
+my $log = 'findOnlyAMKLog.txt';
 
 my $outputfile = $tiedosto . ".onlyAMK";
 
@@ -32,7 +31,7 @@ if (-e $outputfile)
 
 open (my $inputfile, '<:utf8', $tiedosto);
 open (OUTPUT, '>:utf8', $outputfile);
-#open (LOG, '>>:utf8', $log);
+open (LOG, '>>:utf8', $log);
 
 my %amkTagit = (
 	ARKEN => 1,
@@ -112,8 +111,17 @@ my $time = ($end_time - $beg_time);
 my $minutes = sprintf("%.1f", ($time / 60));
 $time = sprintf("%.1f", $time);
 
-print "$onlyAMKRecordCount ($onlyAMKPercentage %) / $totalRecordCount records were only in AMK-libraries.
+my $result = localtime . "\nInput file: $tiedosto
+Output file: $outputfile
+$onlyAMKRecordCount ($onlyAMKPercentage %) / $totalRecordCount records were only in AMK-libraries.
 Processing took $time seconds ($minutes minutes).\n";
+$result .= ("-" x 50) . "\n";
+
+print LOG ("-" x 50) . "\n";
+
+print $result;
+print LOG $result;
 
 close $inputfile;
 close OUTPUT;
+close LOG;

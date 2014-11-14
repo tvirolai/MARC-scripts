@@ -16,7 +16,7 @@ my $linecount;
 
 if( ! defined $tiedosto )
 {
-  die "Usage: perl UniqueFinder.pl inputfile\n";
+  die "Usage: perl uniqueFinder.pl inputfile\n";
 }
 
 my $log = 'log.txt';
@@ -47,7 +47,7 @@ while (<$inputfile>)
 	{
 		push (@recordnumbers, $id);
 	}
-	$linecount++;	
+	$linecount++;
 }
 
 my $totalnumberofrecords = uniq @recordnumbers;

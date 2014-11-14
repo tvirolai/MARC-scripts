@@ -1,6 +1,6 @@
 #!/bin/perl -w
 
-# Find all records that have only LOW-tags of AMK-libraries.
+# Find all records that have only LOW-tags of AMK-libraries and print these to file.
 
 use strict;
 use utf8;
@@ -55,8 +55,8 @@ my %amkTagit = (
 	XAMK => 1,
 );
 
-my $currentRecordID = substr(<$inputfile>, 0, 9);
-seek $inputfile, 0, 0;
+my $currentRecordID = substr(<$inputfile>, 0, 9); # Read the ID number from the first record of the file
+seek $inputfile, 0, 0; # Reset the filehandle
 my @currentRecordContent;
 my @currentRecordLowTags;
 my $onlyAMKRecordCount;
@@ -116,8 +116,6 @@ Output file: $outputfile
 $onlyAMKRecordCount ($onlyAMKPercentage %) / $totalRecordCount records were only in AMK-libraries.
 Processing took $time seconds ($minutes minutes).\n";
 $result .= ("-" x 50) . "\n";
-
-print LOG ("-" x 50) . "\n";
 
 print $result;
 print LOG $result;

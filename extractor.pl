@@ -1,6 +1,6 @@
 #!/bin/perl -w
 
-# Extract interesting information from records and write to CSV-file (?)
+# Extract interesting information from records and write to textfiles
 
 use strict;
 use utf8;
@@ -13,30 +13,17 @@ my $tiedosto = $ARGV[0];
 
 if( ! defined $tiedosto )
 {
-  die "Usage: perl Extractor.pl inputfile\n";
-}
-
-my $outputfile = $tiedosto . ".extracted";
-
-if (-e $outputfile)
-{
-	print "File $outputfile exists. Overwrite (y/n)? ";
-	chomp(my $choice = <STDIN>);
-	if ($choice eq "n")
-	{
-		die "Quitting.\n";
-	}
+  die "Usage: perl extractor.pl inputfile\n";
 }
 
 open (my $inputfile, '<:utf8', $tiedosto);
-open (my $KIELET, '>:utf8', '041.txt');
-open (my $SISALTOTYYPPI, '>:utf8', '336.txt');
-open (my $MEDIATYYPPI, '>:utf8', '337.txt');
-open (my $YKL, '>:utf8', '084_ykl.txt');
-open (my $KEYWORDS, '>:utf8', '650_651_CSV.txt');
-open (my $KEYWORDS2, '>:utf8', '650_651_vain_sanat.txt');
-open (my $THESAURI,'>:utf8', '650_651_2.txt');
-
+open (my $KIELET, '>:utf8', $tiedosto . '.041');
+open (my $SISALTOTYYPPI, '>:utf8', $tiedosto . '.336');
+open (my $MEDIATYYPPI, '>:utf8', $tiedosto . '.337');
+open (my $YKL, '>:utf8', $tiedosto . '.084');
+open (my $KEYWORDS, '>:utf8', $tiedosto . '.650_651_CSV');
+open (my $KEYWORDS2, '>:utf8', $tiedosto . '.650_651_vain_sanat');
+open (my $THESAURI,'>:utf8', $tiedosto . '.650_651_2');
 
 # Extract language codes, content / carrier types (336-/337), YKL-classification codes and keywords into arrays
 
@@ -51,7 +38,7 @@ while (<$inputfile>)
 {
 	my $id = substr($_, 0, 9); # Record id
 	my $fieldCode = substr($_,10, 3); # Field code
-	my $fieldContent = substr($_,18); # Field code
+	my $fieldContent = substr($_,18); # Field content
 	if ($fieldCode eq '041')
 	{
 		my @langCodes = split('\$\$', $fieldContent);

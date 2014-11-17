@@ -31,6 +31,7 @@ for line in inputfile:
         recordCounter += 1
 numberOfRecords = len(set(recordCount))
 executionTime = (time.time() - start_time)
+recordCounter += 1
 
 print "The file " + tiedosto + " contains " + str(numberOfRecords) + " unique records (" + str(recordCounter) + " records in total) in " + str(lineCount) + " lines."
 print "Processing took %.1f seconds." %  executionTime

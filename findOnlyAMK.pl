@@ -15,7 +15,7 @@ if( ! defined $tiedosto )
   die "Usage: perl findOnlyAMK.pl inputfile\n";
 }
 
-my $log = 'findOnlyAMKLog.txt';
+my $log = 'findOnlyAMK.log';
 
 my $outputfile = $tiedosto . ".onlyAMK";
 

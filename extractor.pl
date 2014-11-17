@@ -108,10 +108,10 @@ while (<$inputfile>)
 	{
 		$recordCount++;
 		$currentRecord = $id;
-		print "$recordCount records processed.\n";
 	}
 }
 
+$recordCount++;
 my $end_time = time;
 my $time = ($end_time - $beg_time);
 my $recPerSec = $recordCount / $time;
@@ -119,11 +119,11 @@ my $minutes = sprintf("%.1f", ($time / 60));
 $time = sprintf("%.1f", $time);
 
 $recPerSec = sprintf("%.1f", $recPerSec);
-my $langPerRec = sprintf("%.1f", ($langCodes / $recordCount));
-my $YKLPerRec = sprintf("%.1f", ($YKLCount / $recordCount));
-my $kwPerRec = sprintf("%.1f", ($keyWordsCount / $recordCount));
-my $sisaltoTyyppiPerRec = sprintf("%.1f", ($sisaltoTyyppiCount / $recordCount));
-my $mediaTyyppiPerRec = sprintf("%.1f", ($mediaTyyppiCount / $recordCount));
+my $langPerRec = &perRec($langCodes);
+my $YKLPerRec = &perRec($YKLCount);
+my $kwPerRec = &perRec($keyWordsCount);
+my $sisaltoTyyppiPerRec = &perRec($sisaltoTyyppiCount);
+my $mediaTyyppiPerRec = &perRec($mediaTyyppiCount);
 
 print "\nDone.\n";
 
@@ -144,3 +144,9 @@ close $YKL;
 close $KEYWORDS;
 close $KEYWORDS2;
 close $THESAURI;
+
+sub perRec
+{
+	my $count = shift;
+	my $perRec = sprintf("%.1f", ($count / $recordCount));
+}

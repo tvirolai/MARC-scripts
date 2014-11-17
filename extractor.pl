@@ -25,14 +25,14 @@ open (my $KEYWORDS, '>:utf8', $tiedosto . '.650_651_CSV');
 open (my $KEYWORDS2, '>:utf8', $tiedosto . '.650_651_vain_sanat');
 open (my $THESAURI,'>:utf8', $tiedosto . '.650_651_2');
 
-# Extract language codes, content / carrier types (336-/337), YKL-classification codes and keywords into arrays
-
-my @languages;
-my @sisaltotyyppi;
-my @mediatyyppi;
-my @YKL;
-my @keywords;
-my @thesauri;
+my $currentRecord = substr(<$inputfile>, 0, 9); # Read the ID of the first record in file
+seek $inputfile, 0, 0;
+my $recordCount = 1;
+my $langCodes;
+my $YKLCount;
+my $keyWordsCount;
+my $sisaltoTyyppiCount;
+my $mediaTyyppiCount;
 
 while (<$inputfile>)
 {
@@ -47,7 +47,8 @@ while (<$inputfile>)
 			chomp;
 			# Skip empty fields
 			length($_) > 2 ? $_ = (substr($_, 0, 1) . "," . substr($_, 1, 3)) : next;
-			push (@languages, $_);
+			print $KIELET $_ . "\n";
+			$langCodes++;
 		}
 	}
 
@@ -56,9 +57,9 @@ while (<$inputfile>)
 		chomp;
 		if ($fieldContent =~ /(\d+).(\d+)/)
 		{
-			push(@YKL, $&);
+			print $YKL $& . "\n";
+			$YKLCount++;
 		}
-
 	}
 
 	elsif ($fieldCode eq ('650' || '651'))
@@ -67,10 +68,11 @@ while (<$inputfile>)
 		for (@kwContent) # Format codes as follows: a,fin (subfield code,language code)
 		{
 			chomp;
-			# Push $2-subfields into @thesauri
-			if (substr($_, 0, 1) =~ /2/) { push (@thesauri, substr($_, 1)); next; }
+			if (substr($_, 0, 1) =~ /2/) { print $THESAURI substr($_, 1); next; }
 			if (substr($_, 0, 1) =~ /9/) { next; } # Throw away fields like $9FENNI<KEEP>
-			length($_) > 2 ? push (@keywords, ($_ = (substr($_, 0, 1) . "," . substr($_, 1)))) : next;
+			length($_) > 2 ? print $KEYWORDS ($_ = (substr($_, 0, 1) . "," . substr($_, 1) . "\n")) : next;
+			length($_) > 2 ? print $KEYWORDS2 ($_ = (substr($_, 1) . "\n")): next;
+			$keyWordsCount++;
 		}
 	}
 
@@ -82,7 +84,8 @@ while (<$inputfile>)
 			chomp;
 			unless (length $_ < 2) 
 			{
-				push (@sisaltotyyppi, $_);
+				print $SISALTOTYYPPI $_ . "\n";
+				$sisaltoTyyppiCount++;
 			}
 		}
 	}
@@ -95,59 +98,43 @@ while (<$inputfile>)
 			chomp;
 			unless (length $_ < 2) 
 			{
-				push (@mediatyyppi, $_);
+				print $MEDIATYYPPI $_ . "\n";
+				$mediaTyyppiCount++;
 			}
 		}
 	}
 
+	elsif ($currentRecord ne $id)
+	{
+		$recordCount++;
+		$currentRecord = $id;
+		print "$recordCount records processed.\n";
+	}
 }
 
-@languages = sort @languages;
-@YKL = sort @YKL;
-@keywords = sort @keywords;
-@thesauri = sort @thesauri;
-@sisaltotyyppi = sort @sisaltotyyppi;
-@mediatyyppi = sort @mediatyyppi;
+my $end_time = time;
+my $time = ($end_time - $beg_time);
+my $recPerSec = $recordCount / $time;
+my $minutes = sprintf("%.1f", ($time / 60));
+$time = sprintf("%.1f", $time);
 
-my $uniqueKeywords = uniq @keywords;
-my $thesauri = uniq @thesauri;
-my $sisaltotyyppi = uniq @sisaltotyyppi;
-my $mediatyyppi = uniq @mediatyyppi;
+$recPerSec = sprintf("%.1f", $recPerSec);
+my $langPerRec = sprintf("%.1f", ($langCodes / $recordCount));
+my $YKLPerRec = sprintf("%.1f", ($YKLCount / $recordCount));
+my $kwPerRec = sprintf("%.1f", ($keyWordsCount / $recordCount));
+my $sisaltoTyyppiPerRec = sprintf("%.1f", ($sisaltoTyyppiCount / $recordCount));
+my $mediaTyyppiPerRec = sprintf("%.1f", ($mediaTyyppiCount / $recordCount));
 
-print "$uniqueKeywords keywords found from $thesauri thesauri.
-$sisaltotyyppi content types
-$mediatyyppi media types\n";
+print "\nDone.\n";
 
-for (@languages)
-{
-	print $KIELET $_ . "\n";
-}
+print "$langCodes language codes ($langPerRec / record on average)
+$YKLCount classification codes ($YKLPerRec / record on average)
+$keyWordsCount keywords ($kwPerRec / record on average)
+$sisaltoTyyppiCount content types ($sisaltoTyyppiPerRec / record on average)
+$mediaTyyppiCount media types ($mediaTyyppiPerRec / record on average)
+read from $recordCount records.\n";
 
-for (@YKL)
-{
-	print $YKL $_ . "\n";
-}
-
-for (@sisaltotyyppi)
-{
-	print $SISALTOTYYPPI $_ . "\n";
-}
-
-for (@mediatyyppi)
-{
-	print $MEDIATYYPPI $_ . "\n";
-}
-
-for (@keywords)
-{
-	print $KEYWORDS $_ . "\n";
-	print $KEYWORDS2 substr($_, 2) . "\n";
-}
-
-for (@thesauri)
-{
-	print $THESAURI $_ . "\n";
-}
+print "Processing took $time seconds ($recPerSec records / second).\n";
 
 close $inputfile;
 close $KIELET;

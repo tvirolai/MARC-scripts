@@ -3,9 +3,9 @@
 
 echo
 
-for file in ./Kannat/*-kanta
+for file in ./LOW/*_dumppi
 	do 
-		cat $file >> ./Kannat/KAIKKI.karsimaton
+		cat $file >> ./LOW/KAIKKI.karsimaton
 done
 
 exit 0

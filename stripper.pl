@@ -12,19 +12,15 @@ use List::MoreUtils qw(uniq);
 binmode(STDOUT, ':utf8');
 
 my $beg_time = time;
-my @ebrary;
-my @AMK;
-my @poikaset;
-my @others;
-my @total;
+
 my $tiedosto = $ARGV[0];
 
 if( ! defined $tiedosto )
 {
-  die "Usage: perl Stripper.pl inputfile\n";
+  die "Usage: perl stripper.pl inputfile\n";
 }
 
-my $log = 'stripper_log.txt';
+my $log = 'stripper.log';
 
 my $outputfile = $tiedosto . ".stripped";
 my $outputEbrary = $tiedosto . ".ebrary";
@@ -48,6 +44,20 @@ open (my $OPPARIT, '>:utf8', $outputOpparit);
 open (my $POIKASET, '>:utf8', $outputPoikaset);
 open (LOG, '>>:utf8', $log);
 
+my @ebrary;
+my @AMK;
+my @poikaset;
+my @others;
+my $totalRecordCount;
+my $ebraryCount = 0;
+my $AMKCount = 0;
+my $poikasetCount = 0;
+my $othersCount = 0;
+
+my $currentRecordID = substr(<$inputfile>, 0, 9); # Read the ID number from the first record of the file
+seek $inputfile, 0, 0; # Reset the filehandle
+my @currentRecordContent;
+
 while (<$inputfile>)
 {
 	my $id = substr($_, 0, 9); # Record id
@@ -56,107 +66,78 @@ while (<$inputfile>)
 	if ($content =~ /ebrary-palvelun kautta/i)
 	{
 		push (@ebrary, $id);
-		push (@total, $id);
-
+		push (@currentRecordContent, $_);
 	}
 	elsif ($fieldcode eq '509' && ($content =~ /(AMK-opinn(.+)|erikoistyö(.+))(ammattik|oppilait)/i)) # Opinnäytteet
 	{
 		push (@AMK, $id);
-		push (@total, $id);
+		push (@currentRecordContent, $_);
 	}
-	elsif ($fieldcode eq '773') # Poikastietueet
+	elsif ($fieldcode eq '773' && ($content =~ /\$\$7/)) # Poikastietueet
 	{
 		push (@poikaset, $id);
-		push (@total, $id);
+		push (@currentRecordContent, $_);
+	}
+	elsif ($id ne $currentRecordID)
+	{
+		$totalRecordCount++;
+		$currentRecordID = $id;
+		if (exists $ebrary[0])
+		{
+			for (@currentRecordContent)
+			{
+				print $EBRARY $_;
+			}
+			undef(@currentRecordContent);
+			undef(@ebrary);
+			$ebraryCount++;
+		}
+		elsif (exists $AMK[0])
+		{
+			for (@currentRecordContent)
+			{
+				print $OPPARIT $_;
+			}
+			undef(@currentRecordContent);
+			undef(@AMK);
+			$AMKCount++;
+		}
+		elsif (exists $poikaset[0])
+		{
+			for (@currentRecordContent)
+			{
+				print $POIKASET $_;
+			}
+			undef(@currentRecordContent);
+			undef(@poikaset);
+			$poikasetCount++;
+		}
+		else
+		{
+			for (@currentRecordContent)
+			{
+				print $STRIPPED $_;
+			}
+			undef(@currentRecordContent);
+			$othersCount++;
+		}
 	}
 	else
 	{
 		push (@others, $id);
-		push (@total, $id);
+		push (@currentRecordContent, $_);
 	}
 }
 
-@ebrary = uniq (sort @ebrary);
-@AMK = uniq (sort @AMK);
-@poikaset = uniq (sort @poikaset);
-@others = uniq (sort @others);
-@total = uniq (sort @total);
-
-# Strip ID's existing in other arrays from @others
-
-my @toStrip = sort (@ebrary, @AMK, @poikaset);
-my %toStrip = map { $_ => 1 } @toStrip;
-@others = grep {! exists($toStrip{$_}) } @others;
-
-my $ebrary = @ebrary;
-my $AMK = @AMK;
-my $poikaset = @poikaset;
-my $others = @others;
-my $total = @total;
-
-my $AMKpercentage = ($AMK / $total * 100);
+my $AMKpercentage = ($AMKCount / $totalRecordCount * 100);
 $AMKpercentage = sprintf("%.1f", $AMKpercentage);
-my $poikasetPercentage = ($poikaset / $total * 100);
+my $poikasetPercentage = ($poikasetCount / $totalRecordCount * 100);
 $poikasetPercentage = sprintf("%.1f", $poikasetPercentage);
-my $ebraryPercentage = ($ebrary / $total * 100);
+my $ebraryPercentage = ($ebraryCount / $totalRecordCount * 100);
 $ebraryPercentage = sprintf("%.1f", $ebraryPercentage);
-my $othersPercentage = ($others / $total * 100);
+my $othersPercentage = ($othersCount / $totalRecordCount * 100);
 $othersPercentage = sprintf("%.1f", $othersPercentage);
 
-print "\nTiedostossa \'$tiedosto\' on yhteensä $total tietuetta, joista\n
-$ebrary Ebrary-tietuetta ($ebraryPercentage %)
-$poikaset poikastietuetta ($poikasetPercentage %)
-$AMK AMK-opinnäytettä ($AMKpercentage %)
-$others muuta tietuetta ($othersPercentage %)\n\n";
-
-########################
-
-# Print records into files
-
-my %ebrary = map { $_ => 1 } @ebrary;
-my %AMK = map { $_ => 1 } @AMK;
-my %poikaset = map { $_ => 1 } @poikaset;
-my %others = map { $_ => 1 } @others;
-
-seek $inputfile, 0, 0; # Reset filehandle position for another iteration
-
-# Ebrary-tietueet
-
-while (<$inputfile>)
-{
-	my $id = substr($_, 0, 9); # Record id
-	exists($ebrary{$id}) ? print $EBRARY $_ : next;
-}
-
-# Opinnäytteet
-
-seek $inputfile, 0, 0; 
-
-while (<$inputfile>)
-{
-	my $id = substr($_, 0, 9); # Record id
-	exists($AMK{$id}) ? print $OPPARIT $_ : next;
-}
-
-# Poikaset
-
-seek $inputfile, 0, 0; 
-
-while (<$inputfile>)
-{
-	my $id = substr($_, 0, 9); # Record id
-	exists($poikaset{$id}) ? print $POIKASET $_ : next;
-}
-
-# Karsinnan jälkeen jäljelle jäävät tietueet
-
-seek $inputfile, 0, 0; 
-
-while (<$inputfile>)
-{
-	my $id = substr($_, 0, 9); # Record id
-	exists($others{$id}) ? print $STRIPPED $_ : next;
-}
 
 ########################
 
@@ -167,26 +148,18 @@ $time = sprintf("%.1f", $time);
 
 # Log the process
 
-print LOG localtime . "\nInput file: $tiedosto
-Output files: $outputfile, $outputEbrary, $outputOpparit, $outputPoikaset
-$total records in total
-$ebrary Ebrary-tietuetta ($ebraryPercentage %)
-$poikaset poikastietuetta ($poikasetPercentage %)
-$AMK AMK-opinnäytettä ($AMKpercentage %)
-$others muuta tietuetta ($othersPercentage %)\n\n";
+my $result = localtime . "\nInput file: $tiedosto
+Output file: $outputfile
+Tiedostossa \'$tiedosto\' on yhteensä $totalRecordCount tietuetta, joista\n
+$ebraryCount Ebrary-tietuetta ($ebraryPercentage %)
+$poikasetCount poikastietuetta ($poikasetPercentage %)
+$AMKCount AMK-opinnäytettä ($AMKpercentage %)
+$othersCount muuta tietuetta ($othersPercentage %)\n
+Processing took $time seconds.\n";
+$result .= ("-" x 50) . "\n";
 
-if ($minutes > 1)
-{
-	print "Done, processing took $time seconds ($minutes minutes).\n";
-	print LOG "Processing time: $time seconds ($minutes minutes)\n";
-}
-else
-{
-	print "Done, processing took $time seconds.\n";
-	print LOG "Processing time: $time seconds\n";
-}
-
-print LOG ("-" x 50) . "\n";
+print $result;
+print LOG $result;
 
 close $inputfile;
 close $STRIPPED;

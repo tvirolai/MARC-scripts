@@ -12,7 +12,7 @@ binmode(STDOUT, ':utf8');
 my $beg_time = time;
 
 my $tiedosto = $ARGV[0];
-my $log = 'deduplication_log.txt';
+my $log = 'deduplication.log';
 my $outputfile = $tiedosto . '.deduplicated';
 
 if( ! defined $tiedosto )
@@ -27,14 +27,14 @@ open (LOG, '>>:utf8', $log);
 my %readIDs;
 my @allRecordIDs;
 my @deduplicatedIDs;
-my $currentRecord = substr(<$inputfile>, 0, 9);
+my $currentRecord = substr(<$inputfile>, 0, 9); # Read the ID of the first record in file
+seek $inputfile, 0, 0;
 push (@deduplicatedIDs, $currentRecord);
 # This is initialized to 1 as the value is incremented when the processed record changes - not on first iteration
 my $deduplicatedRecordcount = 1;
 my $recordCount = 0;
 my $skipCount = 0;
 
-seek $inputfile, 0, 0;
 while (my $line = <$inputfile>)
 {
 	my $id = substr($line, 0, 9); # Record id
@@ -58,7 +58,6 @@ while (my $line = <$inputfile>)
 		$currentRecord = $id;
 		$deduplicatedRecordcount++;
 		$skipCount = ($recordCount - $deduplicatedRecordcount);
-		print "Processed $recordCount records ($deduplicatedRecordcount unique, $skipCount skipped).\n";
 	}
 }
 

@@ -17,14 +17,18 @@ inputfile = open(tiedosto, "r")
 recordCount = []
 lineCount = 0
 recordCounter = 0
+firstline = inputfile.readline()
+currentid = firstline[:8]
+inputfile.seek(0)
 
 for line in inputfile:
-	id = line[:9]
-	field = line[10:13]
-	if (field == "FMT"):
-		recordCount.append(id)
-		recordCounter += 1
-	lineCount += 1	
+    id = line[:9]
+    field = line[10:13]
+    lineCount += 1
+    if (id != currentid):
+        currentid = id
+        recordCount.append(id)
+        recordCounter += 1
 numberOfRecords = len(set(recordCount))
 executionTime = (time.time() - start_time)
 

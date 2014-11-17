@@ -48,7 +48,7 @@ my @ebrary;
 my @AMK;
 my @poikaset;
 my @others;
-my $totalRecordCount;
+my $totalRecordCount = 1;
 my $ebraryCount = 0;
 my $AMKCount = 0;
 my $poikasetCount = 0;
@@ -58,12 +58,14 @@ my $currentRecordID = substr(<$inputfile>, 0, 9); # Read the ID number from the 
 seek $inputfile, 0, 0; # Reset the filehandle
 my @currentRecordContent;
 
+print "Stripping file \'$tiedosto\'...\n";
+
 while (<$inputfile>)
 {
 	my $id = substr($_, 0, 9); # Record id
 	my $fieldcode = substr($_,10, 3); # Field code
 	chomp(my $content = substr($_, 18));
-	if ($content =~ /ebrary-palvelun kautta/i)
+	if ($content =~ /Käytettävissä ebrary-palvelun kautta/i)
 	{
 		push (@ebrary, $id);
 		push (@currentRecordContent, $_);
@@ -129,15 +131,12 @@ while (<$inputfile>)
 	}
 }
 
-my $AMKpercentage = ($AMKCount / $totalRecordCount * 100);
-$AMKpercentage = sprintf("%.1f", $AMKpercentage);
-my $poikasetPercentage = ($poikasetCount / $totalRecordCount * 100);
-$poikasetPercentage = sprintf("%.1f", $poikasetPercentage);
-my $ebraryPercentage = ($ebraryCount / $totalRecordCount * 100);
-$ebraryPercentage = sprintf("%.1f", $ebraryPercentage);
-my $othersPercentage = ($othersCount / $totalRecordCount * 100);
-$othersPercentage = sprintf("%.1f", $othersPercentage);
+$totalRecordCount++;
 
+my $AMKpercentage = &percentage($AMKCount);
+my $poikasetPercentage = &percentage($poikasetCount);
+my $ebraryPercentage = &percentage($ebraryCount);
+my $othersPercentage = &percentage($othersCount);
 
 ########################
 
@@ -167,3 +166,9 @@ close $EBRARY;
 close $OPPARIT;
 close $POIKASET;
 close LOG;
+
+sub percentage
+{
+	my $count = shift;
+	my $percentage = sprintf("%.1f", ($count / $totalRecordCount * 100));
+}

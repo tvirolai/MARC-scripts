@@ -1,18 +1,17 @@
 #!/bin/perl -w
 
-# Käsitellään Aleph sequential -tietueita, karsitaan seuraavat tapaukset:
+# Käsitellään Aleph sequential -tietueita, erotellaan seuraavat tapaukset:
 # 1. Ebrary-tietueet
 # 2. Osakohdetietueet
 # 3. AMK-opinnäytteet
 
 use strict;
 use utf8;
-use List::MoreUtils qw(uniq);
-
 binmode(STDOUT, ':utf8');
 
-my $beg_time = time;
+$| = 1; # Autoflush filehandles
 
+my $beg_time = time;
 my $tiedosto = $ARGV[0];
 
 if( ! defined $tiedosto )
@@ -21,7 +20,6 @@ if( ! defined $tiedosto )
 }
 
 my $log = 'stripper.log';
-
 my $outputfile = $tiedosto . ".stripped";
 my $outputEbrary = $tiedosto . ".ebrary";
 my $outputOpparit = $tiedosto . ".opparit";
@@ -47,21 +45,27 @@ open (LOG, '>>:utf8', $log);
 my @ebrary;
 my @AMK;
 my @poikaset;
-my @others;
+my @currentRecordContent;
+
 my $totalRecordCount = 1;
 my $ebraryCount = 0;
 my $AMKCount = 0;
 my $poikasetCount = 0;
 my $othersCount = 0;
-
+my $printMileStone = 50000;
 my $currentRecordID = substr(<$inputfile>, 0, 9); # Read the ID number from the first record of the file
+
 seek $inputfile, 0, 0; # Reset the filehandle
-my @currentRecordContent;
 
 print "Stripping file \'$tiedosto\'...\n";
 
 while (<$inputfile>)
 {
+	if ($totalRecordCount - $printMileStone == 0)
+	{
+		print "$totalRecordCount records read...\n";
+		$printMileStone += 50000;
+	}
 	my $id = substr($_, 0, 9); # Record id
 	my $fieldcode = substr($_,10, 3); # Field code
 	chomp(my $content = substr($_, 18));
@@ -90,9 +94,8 @@ while (<$inputfile>)
 			{
 				print $EBRARY $_;
 			}
-			undef(@currentRecordContent);
-			undef(@ebrary);
 			$ebraryCount++;
+			
 		}
 		elsif (exists $AMK[0])
 		{
@@ -100,8 +103,6 @@ while (<$inputfile>)
 			{
 				print $OPPARIT $_;
 			}
-			undef(@currentRecordContent);
-			undef(@AMK);
 			$AMKCount++;
 		}
 		elsif (exists $poikaset[0])
@@ -110,8 +111,6 @@ while (<$inputfile>)
 			{
 				print $POIKASET $_;
 			}
-			undef(@currentRecordContent);
-			undef(@poikaset);
 			$poikasetCount++;
 		}
 		else
@@ -120,13 +119,15 @@ while (<$inputfile>)
 			{
 				print $STRIPPED $_;
 			}
-			undef(@currentRecordContent);
 			$othersCount++;
 		}
+		undef(@currentRecordContent);
+		undef(@AMK);
+		undef(@ebrary);
+		undef(@poikaset);
 	}
 	else
 	{
-		push (@others, $id);
 		push (@currentRecordContent, $_);
 	}
 }
@@ -161,10 +162,10 @@ print $result;
 print LOG $result;
 
 close $inputfile;
-close $STRIPPED;
 close $EBRARY;
-close $OPPARIT;
+close $STRIPPED;
 close $POIKASET;
+close $OPPARIT;
 close LOG;
 
 sub percentage

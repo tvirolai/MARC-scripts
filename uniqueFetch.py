@@ -48,9 +48,9 @@ def countUnique():
 			currentRecordLOWCount = 0
 			totalRecordCount += 1
 
-	print "Uniikkitietueita: " + str(uniqueCount)
-	print "Ei-uniikkeja: " + str(notUniqueCount)
-	print "Yhteensä: " + str(totalRecordCount)
+	print "Uniikkitietueita: " + str(uniqueCount) + " (" + str(percentage(uniqueCount, totalRecordCount)) + " %)"
+	print "Ei-uniikkeja: " + str(notUniqueCount) + " (" + str(percentage(notUniqueCount, totalRecordCount)) + " %)"
+	print "Yhteensä: " + str(totalRecordCount) 
 	inputfile.close()
 	uniquefile.close()
 	notUniquefile.close()
@@ -60,6 +60,11 @@ def countUnique():
 	logging.info(' Inputfile: ' + tiedosto)
 	logging.info(' Number of unique records in file: ' + str(uniqueCount))
 	logging.info(' Total number of records: ' + str(totalRecordCount))
+
+def percentage(value, total):
+	prosentti = float(value) / float(total) * 100
+	prosentti = round(prosentti, 1)
+	return prosentti
 
 if __name__ == '__main__':
     countUnique()

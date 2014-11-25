@@ -55,7 +55,7 @@ my %amkTagit = (
 	XAMK => 1,
 );
 
-my $currentRecordID = 0; #= substr(<$inputfile>, 0, 9); # Read the ID number from the first record of the file
+my $currentRecordID = 0;
 seek $inputfile, 0, 0; # Reset the filehandle
 my @currentRecordContent;
 my @currentRecordLowTags;

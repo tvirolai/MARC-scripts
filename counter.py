@@ -4,35 +4,44 @@
 
 import sys
 import time
-start_time = time.time()
+import logging
 
-if len(sys.argv) < 2:
-	print("Usage: python counter.py inputfile")
-	sys.exit()
-else:
-	tiedosto = sys.argv[1]
+def count():
+    start_time = time.time()
 
-inputfile = open(tiedosto, "r")
+    if len(sys.argv) < 2:
+    	print("Usage: python counter.py inputfile")
+    	sys.exit()
+    else:
+    	tiedosto = sys.argv[1]
 
-recordCount = []
-lineCount = 0
-recordCounter = 0
-firstline = inputfile.readline()
-currentid = firstline[:8]
-inputfile.seek(0)
+    inputfile = open(tiedosto, "r")
 
-for line in inputfile:
-    id = line[:9]
-    field = line[10:13]
-    lineCount += 1
-    if (id != currentid):
-        currentid = id
-        recordCount.append(id)
-        recordCounter += 1
-numberOfRecords = len(set(recordCount))
-executionTime = (time.time() - start_time)
-recordCounter += 1
+    recordCount = []
+    lineCount = 0
+    recordCounter = 0
+    firstline = inputfile.readline()
+    currentid = firstline[:8]
+    inputfile.seek(0)
 
-print "The file " + tiedosto + " contains " + str(numberOfRecords) + " unique records (" + str(recordCounter) + " records in total) in " + str(lineCount) + " lines."
-print "Processing took %.1f seconds." %  executionTime
-inputfile.close()
+    for line in inputfile:
+        id = line[:9]
+        field = line[10:13]
+        lineCount += 1
+        if (id != currentid):
+            currentid = id
+            recordCount.append(id)
+            recordCounter += 1
+    numberOfRecords = len(set(recordCount))
+    executionTime = (time.time() - start_time)
+
+    print "The file " + tiedosto + " contains " + str(numberOfRecords) + " unique records (" + str(recordCounter) + " records in total) in " + str(lineCount) + " lines."
+    print "Processing took %.1f seconds." %  executionTime
+    inputfile.close()
+    logging.basicConfig(filename='counter.log',level=logging.DEBUG)
+    logging.info(' Inputfile: ' + tiedosto)
+    logging.info(' Number of unique records in file: ' + str(numberOfRecords))
+    logging.info(' Total number of records: ' + str(recordCounter))
+
+if __name__ == '__main__':
+    count()

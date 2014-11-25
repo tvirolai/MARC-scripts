@@ -47,13 +47,13 @@ my @AMK;
 my @poikaset;
 my @currentRecordContent;
 
-my $totalRecordCount = 1;
+my $totalRecordCount = 0;
 my $ebraryCount = 0;
 my $AMKCount = 0;
 my $poikasetCount = 0;
 my $othersCount = 0;
 my $printMileStone = 50000;
-my $currentRecordID = substr(<$inputfile>, 0, 9); # Read the ID number from the first record of the file
+my $currentRecordID = 0;
 
 seek $inputfile, 0, 0; # Reset the filehandle
 
@@ -131,8 +131,6 @@ while (<$inputfile>)
 		push (@currentRecordContent, $_);
 	}
 }
-
-$totalRecordCount++;
 
 my $AMKpercentage = &percentage($AMKCount);
 my $poikasetPercentage = &percentage($poikasetCount);

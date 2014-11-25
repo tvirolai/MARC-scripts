@@ -56,7 +56,6 @@ my %amkTagit = (
 );
 
 my $currentRecordID = 0;
-seek $inputfile, 0, 0; # Reset the filehandle
 my @currentRecordContent;
 my @currentRecordLowTags;
 my $onlyAMKRecordCount;

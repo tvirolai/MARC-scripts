@@ -55,8 +55,6 @@ my $othersCount = 0;
 my $printMileStone = 50000;
 my $currentRecordID = 0;
 
-seek $inputfile, 0, 0; # Reset the filehandle
-
 print "Stripping file \'$tiedosto\'...\n";
 
 while (<$inputfile>)

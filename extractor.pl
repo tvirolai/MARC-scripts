@@ -18,12 +18,15 @@ if( ! defined $tiedosto )
 
 open (my $inputfile, '<:utf8', $tiedosto);
 open (my $KIELET, '>:utf8', $tiedosto . '.041');
+open (my $SISALTOJAMEDIA, '>:utf8', $tiedosto . '.336-337');
 open (my $SISALTOTYYPPI, '>:utf8', $tiedosto . '.336');
 open (my $MEDIATYYPPI, '>:utf8', $tiedosto . '.337');
 open (my $YKL, '>:utf8', $tiedosto . '.084');
 open (my $KEYWORDS, '>:utf8', $tiedosto . '.650_651_CSV');
 open (my $KEYWORDS2, '>:utf8', $tiedosto . '.650_651_vain_sanat');
 open (my $THESAURI,'>:utf8', $tiedosto . '.650_651_2');
+open (my $VUOSI,'>:utf8', $tiedosto . '.vuosi');
+
 
 my $currentRecord = substr(<$inputfile>, 0, 9); # Read the ID of the first record in file
 seek $inputfile, 0, 0;
@@ -37,8 +40,8 @@ my $mediaTyyppiCount;
 while (<$inputfile>)
 {
 	my $id = substr($_, 0, 9); # Record id
-	my $fieldCode = substr($_,10, 3); # Field code
-	my $fieldContent = substr($_,18); # Field content
+	my $fieldCode = substr($_, 10, 3); # Field code
+	my $fieldContent = substr($_, 18); # Field content
 	if ($fieldCode eq '041')
 	{
 		my @langCodes = split('\$\$', $fieldContent);
@@ -68,10 +71,10 @@ while (<$inputfile>)
 		for (@kwContent) # Format codes as follows: a,fin (subfield code,language code)
 		{
 			chomp;
-			if (substr($_, 0, 1) =~ /2/) { print $THESAURI substr($_, 1); next; }
+			if (substr($_, 0, 1) =~ /2/) { print $THESAURI substr($_, 1) . "\n"; next; }
 			if (substr($_, 0, 1) =~ /9/) { next; } # Throw away fields like $9FENNI<KEEP>
 			length($_) > 2 ? print $KEYWORDS ($_ = (substr($_, 0, 1) . "," . substr($_, 1) . "\n")) : next;
-			length($_) > 2 ? print $KEYWORDS2 ($_ = (substr($_, 1) . "\n")): next;
+			length($_) > 2 ? print $KEYWORDS2 ($_ = substr($_, 2)): next;
 			$keyWordsCount++;
 		}
 	}
@@ -85,6 +88,7 @@ while (<$inputfile>)
 			unless (length $_ < 2) 
 			{
 				print $SISALTOTYYPPI $_ . "\n";
+				print $SISALTOJAMEDIA "336," . $_ . "\n";
 				$sisaltoTyyppiCount++;
 			}
 		}
@@ -99,9 +103,15 @@ while (<$inputfile>)
 			unless (length $_ < 2) 
 			{
 				print $MEDIATYYPPI $_ . "\n";
+				print $SISALTOJAMEDIA "337," . $_ . "\n";
 				$mediaTyyppiCount++;
 			}
 		}
+	}
+	elsif ($fieldCode eq ('008'))
+	{
+		my $vuosi = substr($fieldContent, 7, 4);
+		print $VUOSI $vuosi . "\n";
 	}
 
 	elsif ($currentRecord ne $id)

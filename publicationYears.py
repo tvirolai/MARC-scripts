@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*
 
-import sys, re
+import sys
 
 totalCount = 0
 
@@ -11,15 +11,13 @@ def yearcount():
 		sys.exit()
 	else:
 		tiedosto = sys.argv[1]
-
 	inputFile = open(tiedosto, "r")
 	global totalCount
-
 	counts = {'1800' : 0, '1900' : 0, '1910' : 0, 
-	'1920' : 0, '1930' : 0, '1940' : 0, '1950' : 0, '1960' : 0, '1970' : 0, '1980' : 0, '1990' : 0, '2000' : 0, '2010' : 0, 'others' : 0}
+	'1920' : 0, '1930' : 0, '1940' : 0, '1950' : 0, '1960' : 0, 
+	'1970' : 0, '1980' : 0, '1990' : 0, '2000' : 0, '2010' : 0, 'others' : 0}
 
 	for line in inputFile:
-
 		totalCount += 1
 		try:
 			line = int(line[:-1])
@@ -53,7 +51,6 @@ def yearcount():
 		elif line in range(2010, 2015):
 			counts['2010'] += 1
 
-	percentage(counts['2010'])
 	print "1800-luvulla: " + str(counts['1800']) + " (" + str(percentage(counts['1800'])) + " %)" 
 	print "1900-1909: " + str(counts['1900']) + " (" + str(percentage(counts['1900'])) + " %)" 
 	print "1910-1919: " + str(counts['1910']) + " (" + str(percentage(counts['1910'])) + " %)" 

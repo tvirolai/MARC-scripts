@@ -34,7 +34,7 @@ def parse():
 			elif content == 'projektion':
 				content = 'heijastettava'
 			mediatyyppi = content
-			outputFile.write(sisaltotyyppi + " : " + "'" + mediatyyppi + "'" + "\n")
+			outputFile.write(sisaltotyyppi + " : " + mediatyyppi + "\n")
 
 	inputFile.close()
 	outputFile.close()

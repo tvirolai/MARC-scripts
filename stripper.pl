@@ -72,7 +72,7 @@ while (<$inputfile>)
 		push (@ebrary, $id);
 		push (@currentRecordContent, $_);
 	}
-	elsif ($fieldcode eq '509' && ($content =~ /(AMK-opinn(.+)|erikoistyö(.+))(ammattik|oppilait)/i)) # Opinnäytteet
+	elsif ($fieldcode eq '509') #&& ($content =~ /(AMK-opinn(.)+|erikoisty)(ammattik|oppilait)/i)) # Opinnäytteet
 	{
 		push (@AMK, $id);
 		push (@currentRecordContent, $_);

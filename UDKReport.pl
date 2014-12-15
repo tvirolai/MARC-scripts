@@ -17,7 +17,6 @@ if( ! defined $tiedosto )
 
 open (my $inputfile, '<:utf8', $tiedosto);
 
-my $beg_time = time;
 my $taulukko = ReadData ("UDK.xlsx") || die $!;
 my $sheet = "1";
 my $codes_firstcell = "A1";

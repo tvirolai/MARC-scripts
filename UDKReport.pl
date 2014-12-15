@@ -5,7 +5,6 @@
 use strict;
 use utf8;
 use Spreadsheet::Read;
-use Data::Dumper qw(Dumper);
 use List::MoreUtils qw(uniq);
 
 binmode(STDOUT, ':utf8');
@@ -61,7 +60,6 @@ for (my $row = $firstrow; $row <= $lastrow; $row++)
 
 # Read the Aleph Seq-file, scan for 080-fields, strip leading "UDK:" and non $a-subfields, count occurrences as values in %luokitukset
 my $totalCount = 0;
-my @split;
 
 while (<$inputfile>)
 {

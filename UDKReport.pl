@@ -5,7 +5,6 @@
 use strict;
 use utf8;
 use Spreadsheet::Read;
-use List::MoreUtils qw(uniq);
 
 binmode(STDOUT, ':utf8');
 

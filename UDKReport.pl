@@ -1,10 +1,11 @@
 #!/bin/perl -w
 
-# List the 20 most common UDK-classifications in an Aleph Seq -file with descriptions
+# List the amounts of UDK-classifications in an Aleph Seq -file with descriptions
 
 use strict;
 use utf8;
 use Spreadsheet::Read;
+use Data::Dumper qw(Dumper);
 use List::MoreUtils qw(uniq);
 
 binmode(STDOUT, ':utf8');
@@ -37,6 +38,8 @@ my $codecell_content;
 my $descriptioncell;
 my $descriptioncell_content;
 
+my @notFound;
+
 # Read classification codes into hash as keys
 
 for (my $row = $firstrow; $row <= $lastrow; $row++) 
@@ -56,14 +59,9 @@ for (my $row = $firstrow; $row <= $lastrow; $row++)
 	}
 }
 
-
-
-#foreach my $key (keys %luokitukset) {
-#	print $key . "\n";
-#}
-
 # Read the Aleph Seq-file, scan for 080-fields, strip leading "UDK:" and non $a-subfields, count occurrences as values in %luokitukset
 my $totalCount = 0;
+my @split;
 
 while (<$inputfile>)
 {
@@ -73,7 +71,7 @@ while (<$inputfile>)
 	my $class;
 	if ($fieldCode eq '080')
 	{
-		($class = $fieldContent) =~ s/UDK://;
+		($class = $fieldContent) =~ s/UDK:|UDK\.//;
 		if ($class =~ m/\$/) 
 		{
 			($class = $class) =~ s/\$(.)+//; 
@@ -84,6 +82,39 @@ while (<$inputfile>)
 			$luokitukset{$class}++;
 			$totalCount++;
 		}
+		else # Jos luokituskirjaukselle ei löydy suoraa vastinetta Fennican UDK-taulukosta, löytyisikö kirjauksen osajoukolle.
+			 # Logiikka: otetaan merkkejä pois lopusta ja verrataan. Lopetetaan kun löytyy osuma tai kun kirjauksessa ei ole enää pisteitä tai kenoviivoja
+		{
+			my $pituus = length($class);
+			if ($class =~ m/(\.|\/)/)
+			{
+				while (length(substr($class, 0, $pituus)) >= 1)
+				{
+					
+					my $substring = substr($class, 0, $pituus);
+					chomp($substring);
+
+					if (defined $luokitukset{$substring})
+					{
+						$luokitukset{$substring}++;
+						$totalCount++;
+						last;
+					}
+					elsif (substr($class, 0, $pituus) =~ m/(\.|\/)/)
+					{
+						$pituus--;
+						next;
+					}
+					else 
+					{
+						push @notFound, $class;
+						last;
+					}
+					
+				}
+			}
+			
+		}
 	}
 }
 
@@ -92,6 +123,5 @@ foreach my $maara (sort { $luokitukset{$b} <=> $luokitukset{$a} } keys %luokituk
 	printf "%s\t%s\t%s\n", $luokitukset{$maara}, $maara, $luokitukset_kuvaus{$maara};
 }
 print "Yhteensä löydettiin " . $totalCount . " kirjausta.\n";
-
 
 close $inputfile;

@@ -9,20 +9,16 @@
 var http = require('http');
 var fs = require('fs');
 var _ = require('underscore');
-var destFile = '../data.seq';
 
-if (fs.statSync(destFile).isFile()) { fs.unlink(destFile); console.log('Removed existing file'); }
-download(getUrls(), destFile);
+download(getUrls(), fs.createWriteStream('../data.seq'));
 
-function download(urls, destination) {
-  var file = fs.createWriteStream(destination, { flags: 'a' });
+function download(urls, outputStream) {
   console.log('Downloading file ' + urls[0] + '.');
   http.get(urls.shift(), function (response) {
-    response.pipe(file);
-    file.on('finish', function () {
-      if (urls.length > 0) { file.close(); download(urls, destination); }
-      else { file.close(); console.log('All done!'); }
-    }).on('error', function () { fs.unlink(destination); });
+    response.pipe(outputStream);
+    outputStream.on('finish', function () {
+      if (urls.length > 0) { download(urls, fs.createWriteStream('../data.seq', { flags: 'a' })); } else { console.log('All done!'); }
+    });
   });
 }
 

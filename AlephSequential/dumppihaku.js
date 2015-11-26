@@ -8,50 +8,24 @@
 
 var http = require('http');
 var fs = require('fs');
-var urls = [];
-var destFile = '/home/tuomo/Työpöytä/Melinda-dumppi/data.seq';
+var _ = require('underscore');
+var destFile = '../data.seq';
 
-function download(urls) {
-  var url = urls.pop();
-  var options = {flags: 'a' };
-  var file = fs.createWriteStream(destFile, options);
-  console.log('Downloading file ' + url + '.');
-  http.get(url, function (response) {
+if (fs.statSync(destFile).isFile()) { fs.unlink(destFile); console.log('Removed existing file'); }
+download(getUrls(), destFile);
+
+function download(urls, destination) {
+  var file = fs.createWriteStream(destination, { flags: 'a' });
+  console.log('Downloading file ' + urls[0] + '.');
+  http.get(urls.shift(), function (response) {
     response.pipe(file);
     file.on('finish', function () {
-      if (urls.length > 0) { file.close(); download(urls); }
+      if (urls.length > 0) { file.close(); download(urls, destination); }
       else { file.close(); console.log('All done!'); }
-    }).on('error', function () {
-      fs.unlink(destFile);
-    });
+    }).on('error', function () { fs.unlink(destination); });
   });
 }
 
 function getUrls() {
-  var url = '';
-  var urlRoot = 'http://replikointi-kk.lib.helsinki.fi/index/alina';
-  for (var i = 0; i < 10; i++) {
-    url = urlRoot + '0' + i.toString() + '.seq';
-    urls.push(url);
-  }
-  return urls.reverse();
+  return _.map(_.range(0,10), function (d) { return 'http://replikointi-kk.lib.helsinki.fi/index/alina0' + d + '.seq'; });
 }
-
-function fileExists(filePath) {
-  try {
-    return fs.statSync(filePath).isFile();
-  }
-  catch (err) {
-    return false;
-  }
-}
-
-function checkAndRemove(destFile) {
-  if (fileExists(destFile)) {
-    fs.unlink(destFile);
-    console.log('Removed existing file.');
-  }
-}
-
-checkAndRemove(destFile);
-download(getUrls());

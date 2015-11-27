@@ -1,8 +1,7 @@
 /* jshint node: true */
 
-// Skripti lataa replikointipalvelimelta Melindan datan yhteen valtavaan Aleph Sequential -tiedostoon
-// Huom! Oletuksena on, että palvelimella on 10 tiedostoa (alina00.seq - alina09.seq).
-// Jos tiedosto on olemassa, se poistetaan ennen latauksen aloittamista.
+/* Skripti lataa replikointipalvelimelta Melindan datan yhteen valtavaan Aleph Sequential -tiedostoon Huom! Oletuksena on, 
+että palvelimella on 10 tiedostoa (alina00.seq - alina09.seq). Jos tiedosto on olemassa, se poistetaan ennen latauksen aloittamista. */
 
 'use strict';
 

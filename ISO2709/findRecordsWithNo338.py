@@ -3,14 +3,16 @@
 
 from pymarc import MARCReader, MARCWriter
 import sys
+import datetime
 
 
 def read(inputfile):
-    outputfile = "OUTPUTFILE.mrc"
+    outputfile = inputfile + "_no338_" + \
+        datetime.datetime.now().isoformat() + ".mrc"
     has338Count = 0
     no338Count = 0
     totalCount = 0
-    poikaset = 0
+    supplements = 0
     with open(inputfile, 'rb') as f:
         reader = MARCReader(f)
         writer = MARCWriter(open(outputfile, 'wb'))
@@ -26,16 +28,18 @@ def read(inputfile):
                         print("Error with writing.")
                 else:
                     has338Count += 1
-                if (isPoikanen(record)):
-                    poikaset += 1
+                if (isSupplement(record)):
+                    supplements += 1
+            except UnicodeDecodeError:
+                print("There was a Unicode error.")
             except StopIteration:
-                print("Tiedoston loppu")
+                print("End of file.")
                 break
         writer.close()
     print(
         "{0} / {1} ({2} %) records have no 338 field.".format(no338Count,
-                    totalCount, countPercentage(no338Count, totalCount)))
-    print("Tiedostossa oli {0} osakohdetietuetta (poikasta)".format(poikaset))
+                                                              totalCount, countPercentage(no338Count, totalCount)))
+    print("The file contained {0} supplement records.".format(supplements))
 
 
 def testFor338(record):
@@ -43,26 +47,20 @@ def testFor338(record):
 
 
 def testFor336To338(record):
-    if ('336' in record) and ('337' in record) and not ('338' in record):
-        return False
-    else:
-        return True
+    return (('336' in record) and ('337' in record) and not ('338' in record))
 
 
 def countPercentage(amount, total):
     return str(round((float(amount) / total * 100), 1))
 
 
-def isPoikanen(record):
-    if ('773' in record):
-        return True
-    else:
-        return False
+def isSupplement(record):
+    return ('773' in record)
 
 
 if __name__ == '__main__':
     if (len(sys.argv) == 2):
-        inputfile=sys.argv[1]
+        inputfile = sys.argv[1]
     else:
         print(
             'Arguments: 1) inputfile')

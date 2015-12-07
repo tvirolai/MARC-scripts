@@ -26,6 +26,7 @@ open (my $KEYWORDS, '>:utf8', $tiedosto . '.650_651_CSV');
 open (my $KEYWORDS2, '>:utf8', $tiedosto . '.650_651_vain_sanat');
 open (my $THESAURI,'>:utf8', $tiedosto . '.650_651_2');
 open (my $VUOSI,'>:utf8', $tiedosto . '.vuosi');
+open (my $MAAKOODIT,'>:utf8', $tiedosto . '.julkaisumaat');
 
 
 my $currentRecord = substr(<$inputfile>, 0, 9); # Read the ID of the first record in file
@@ -36,6 +37,7 @@ my $YKLCount;
 my $keyWordsCount;
 my $sisaltoTyyppiCount;
 my $mediaTyyppiCount;
+my $maakoodiCount;
 
 while (<$inputfile>)
 {
@@ -53,6 +55,21 @@ while (<$inputfile>)
 			print $KIELET $_ . "\n";
 			$langCodes++;
 		}
+	}
+
+	elsif ($fieldCode eq '008')
+	{
+		chomp;
+	  if ($fieldCode eq '008') {
+	    my $country = substr($fieldContent, 15, 3);
+	    if (substr($country, 2, 1) eq '^') {
+	      $country = substr($country, 0, 2);
+	    }
+	    $maakoodiCount++;
+	    print $MAAKOODIT $country . "\n";
+	  }
+	  my $vuosi = substr($fieldContent, 7, 4);
+		print $VUOSI $vuosi . "\n";
 	}
 
 	elsif ($fieldCode eq '084' && $fieldContent =~ /2ykl/i)
@@ -107,11 +124,6 @@ while (<$inputfile>)
 				$mediaTyyppiCount++;
 			}
 		}
-	}
-	elsif ($fieldCode eq ('008'))
-	{
-		my $vuosi = substr($fieldContent, 7, 4);
-		print $VUOSI $vuosi . "\n";
 	}
 
 	elsif ($currentRecord ne $id)

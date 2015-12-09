@@ -1,0 +1,685 @@
+284775;suomi;041$a;tekstin tai ääniraidan kieli
+88787;englanti;041$a;tekstin tai ääniraidan kieli
+50312;englanti;041$h;alkuperäinen kieli
+32711;englanti;041$d;lauletun tai puhutun aineiston kieli
+27623;ruotsi;041$a;tekstin tai ääniraidan kieli
+18939;suomi;041$d;lauletun tai puhutun aineiston kieli
+12249;saksa;041$a;tekstin tai ääniraidan kieli
+11718;ruotsi;041$h;alkuperäinen kieli
+11113;englanti;041$b;tiivistelmän tai abstraktin kieli
+11011;suomi;041$j;tekstityksen kieli
+9809;ruotsi;041$j;tekstityksen kieli
+8839;norja;041$j;tekstityksen kieli
+8525;tanska;041$j;tekstityksen kieli
+7073;saksa;041$h;alkuperäinen kieli
+6620;ranska;041$a;tekstin tai ääniraidan kieli
+6596;ranska;041$h;alkuperäinen kieli
+6092;venäjä;041$a;tekstin tai ääniraidan kieli
+4684;englanti;041$j;tekstityksen kieli
+4203;espanja;041$a;tekstin tai ääniraidan kieli
+4118;ruotsi;041$b;tiivistelmän tai abstraktin kieli
+3277;italia;041$a;tekstin tai ääniraidan kieli
+2861;suomi;041$h;alkuperäinen kieli
+2389;venäjä;041$h;alkuperäinen kieli
+2337;tanska;041$a;tekstin tai ääniraidan kieli
+2285;norja;041$a;tekstin tai ääniraidan kieli
+2253;japani;041$h;alkuperäinen kieli
+2160;määrittelemätön;041$d;lauletun tai puhutun aineiston kieli
+2149;määrittelemätön;041$h;alkuperäinen kieli
+2056;hollanti;041$j;tekstityksen kieli
+1928;saksa;041$d;lauletun tai puhutun aineiston kieli
+1903;norja;041$h;alkuperäinen kieli
+1882;saksa;041$b;tiivistelmän tai abstraktin kieli
+1879;espanja;041$j;tekstityksen kieli
+1852;saksa;041$j;tekstityksen kieli
+1826;italia;041$h;alkuperäinen kieli
+1804;islanti;041$j;tekstityksen kieli
+1797;ranska;041$j;tekstityksen kieli
+1793;tanska;041$h;alkuperäinen kieli
+1789;viro;041$a;tekstin tai ääniraidan kieli
+1629;useita kieliä;041$a;tekstin tai ääniraidan kieli
+1553;espanja;041$d;lauletun tai puhutun aineiston kieli
+1544;portugali;041$j;tekstityksen kieli
+1501;ruotsi;041$d;lauletun tai puhutun aineiston kieli
+1472;ranska;041$d;lauletun tai puhutun aineiston kieli
+1439;italia;041$d;lauletun tai puhutun aineiston kieli
+1376;suomi;041$b;tiivistelmän tai abstraktin kieli
+1366;italia;041$j;tekstityksen kieli
+1254;puola;041$a;tekstin tai ääniraidan kieli
+1157;latina;041$d;lauletun tai puhutun aineiston kieli
+1089;espanja;041$h;alkuperäinen kieli
+1061;määrittelemätön;041$a;tekstin tai ääniraidan kieli
+1055;puola;041$j;tekstityksen kieli
+1007;turkki;041$j;tekstityksen kieli
+989;useita kieliä;041$d;lauletun tai puhutun aineiston kieli
+971;unkari;041$j;tekstityksen kieli
+946;ranska;041$b;tiivistelmän tai abstraktin kieli
+944;kiina;041$a;tekstin tai ääniraidan kieli
+924;tsekki;041$j;tekstityksen kieli
+923;kreikka (1453-);041$j;tekstityksen kieli
+898;useita kieliä;041$j;tekstityksen kieli
+860;heprea;041$j;tekstityksen kieli
+824;arabia;041$j;tekstityksen kieli
+815;farsi;041$a;tekstin tai ääniraidan kieli
+806;arabia;041$a;tekstin tai ääniraidan kieli
+784;japani;041$a;tekstin tai ääniraidan kieli
+755;venäjä;041$d;lauletun tai puhutun aineiston kieli
+675;unkari;041$a;tekstin tai ääniraidan kieli
+651;latina;041$a;tekstin tai ääniraidan kieli
+584;hollanti;041$h;alkuperäinen kieli
+565;kroatia;041$j;tekstityksen kieli
+560;portugali;041$d;lauletun tai puhutun aineiston kieli
+516;bulgaria;041$j;tekstityksen kieli
+473;norja;041$b;tiivistelmän tai abstraktin kieli
+462;romania;041$j;tekstityksen kieli
+455;portugali;041$a;tekstin tai ääniraidan kieli
+440;viro;041$h;alkuperäinen kieli
+421;hollanti;041$a;tekstin tai ääniraidan kieli
+412;useita kieliä;041$b;tiivistelmän tai abstraktin kieli
+411;turkki;041$a;tekstin tai ääniraidan kieli
+404;tanska;041$b;tiivistelmän tai abstraktin kieli
+390;tsekki;041$a;tekstin tai ääniraidan kieli
+383;sloveeni;041$j;tekstityksen kieli
+353;hindi;041$j;tekstityksen kieli
+341;kurdi;041$a;tekstin tai ääniraidan kieli
+335;islanti;041$a;tekstin tai ääniraidan kieli
+322;muinaiskreikka (-1453);041$h;alkuperäinen kieli
+303;ei kielellistä sisältöä;041$d;lauletun tai puhutun aineiston kieli
+292;venäjä;041$b;tiivistelmän tai abstraktin kieli
+290;italia;041$b;tiivistelmän tai abstraktin kieli
+289;puola;041$h;alkuperäinen kieli
+277;kroatia;041$a;tekstin tai ääniraidan kieli
+276;portugali;041$h;alkuperäinen kieli
+267;tsekki;041$h;alkuperäinen kieli
+266;useita kieliä;041$h;alkuperäinen kieli
+265;vietnam;041$a;tekstin tai ääniraidan kieli
+265;albania;041$a;tekstin tai ääniraidan kieli
+260;unkari;041$h;alkuperäinen kieli
+260;thai;041$a;tekstin tai ääniraidan kieli
+245;latina;041$h;alkuperäinen kieli
+228;arabia;041$d;lauletun tai puhutun aineiston kieli
+223;somali;041$a;tekstin tai ääniraidan kieli
+220;espanja;041$b;tiivistelmän tai abstraktin kieli
+209;venäjä;041$j;tekstityksen kieli
+209;kreikka (1453-);041$a;tekstin tai ääniraidan kieli
+206;islanti;041$h;alkuperäinen kieli
+206;romania;041$a;tekstin tai ääniraidan kieli
+203;heprea;041$h;alkuperäinen kieli
+190;englanti;041$g;liiteaineiston kieli
+182;kiina;041$j;tekstityksen kieli
+169;kiina;041$h;alkuperäinen kieli
+165;saamelaiskielet;041$a;tekstin tai ääniraidan kieli
+154;serbia;041$j;tekstityksen kieli
+139;ei kielellistä sisältöä;041$a;tekstin tai ääniraidan kieli
+136;korea;041$j;tekstityksen kieli
+130;viro;041$j;tekstityksen kieli
+129;japani;041$j;tekstityksen kieli
+128;arabia;041$h;alkuperäinen kieli
+127;kreikka (1453-);041$d;lauletun tai puhutun aineiston kieli
+122;esperanto;041$a;tekstin tai ääniraidan kieli
+119;viro;041$d;lauletun tai puhutun aineiston kieli
+118;japani;041$d;lauletun tai puhutun aineiston kieli
+117;hollanti;041$b;tiivistelmän tai abstraktin kieli
+114;saamelaiskielet;041$d;lauletun tai puhutun aineiston kieli
+108;hindi;041$a;tekstin tai ääniraidan kieli
+107;heprea;041$a;tekstin tai ääniraidan kieli
+104;kreikka (1453-);041$h;alkuperäinen kieli
+98;liettua;041$a;tekstin tai ääniraidan kieli
+97;serbia;041$a;tekstin tai ääniraidan kieli
+92;latina;041$b;tiivistelmän tai abstraktin kieli
+92;katalaani;041$a;tekstin tai ääniraidan kieli
+91;norja;041$d;lauletun tai puhutun aineiston kieli
+91;latvia;041$a;tekstin tai ääniraidan kieli
+89;bulgaria;041$a;tekstin tai ääniraidan kieli
+84;korea;041$a;tekstin tai ääniraidan kieli
+83;heprea;041$d;lauletun tai puhutun aineiston kieli
+80;saksa;041$g;liiteaineiston kieli
+78;turkki;041$h;alkuperäinen kieli
+73;portugali;041$b;tiivistelmän tai abstraktin kieli
+72;suomalais-ugrilaiset kielet;041$a;tekstin tai ääniraidan kieli
+71;romania;041$d;lauletun tai puhutun aineiston kieli
+70;karjala;041$a;tekstin tai ääniraidan kieli
+66;turkki;041$d;lauletun tai puhutun aineiston kieli
+64;iiri;041$d;lauletun tai puhutun aineiston kieli
+59;thai;041$j;tekstityksen kieli
+57;jiddis;041$d;lauletun tai puhutun aineiston kieli
+56;suomi;041$g;liiteaineiston kieli
+56;farsi;041$d;lauletun tai puhutun aineiston kieli
+56;japani;041$b;tiivistelmän tai abstraktin kieli
+55;liettua;041$j;tekstityksen kieli
+54;slovakki;041$j;tekstityksen kieli
+53;latvia;041$j;tekstityksen kieli
+52;englanti;041$k;välikäännösten kieli
+52;ukraina;041$j;tekstityksen kieli
+52;viro;041$b;tiivistelmän tai abstraktin kieli
+51;unkari;041$d;lauletun tai puhutun aineiston kieli
+50;ranska;041$g;liiteaineiston kieli
+50;ukraina;041$a;tekstin tai ääniraidan kieli
+49;farsi;041$h;alkuperäinen kieli
+44;gaeli;041$d;lauletun tai puhutun aineiston kieli
+43;korea;041$h;alkuperäinen kieli
+42;puola;041$d;lauletun tai puhutun aineiston kieli
+41;hindi;041$d;lauletun tai puhutun aineiston kieli
+41;tsekki;041$d;lauletun tai puhutun aineiston kieli
+39;azeri;041$a;tekstin tai ääniraidan kieli
+38;saame;041$a;tekstin tai ääniraidan kieli
+36;sanskrit;041$h;alkuperäinen kieli
+36;romani;041$d;lauletun tai puhutun aineiston kieli
+36;karjala;041$d;lauletun tai puhutun aineiston kieli
+35;muinaiskreikka (-1453);041$a;tekstin tai ääniraidan kieli
+33;unkari;041$b;tiivistelmän tai abstraktin kieli
+32;islanti;041$d;lauletun tai puhutun aineiston kieli
+31;Pohjois-Amerikan intiaanikielet;041$d;lauletun tai puhutun aineiston kieli
+31;kiina;041$d;lauletun tai puhutun aineiston kieli
+31;bosnia;041$a;tekstin tai ääniraidan kieli
+28;jiddis;041$h;alkuperäinen kieli
+28;tanska;041$d;lauletun tai puhutun aineiston kieli
+28;saamelaiskielet;041$b;tiivistelmän tai abstraktin kieli
+27;katalaani;041$h;alkuperäinen kieli
+27;slovakki;041$a;tekstin tai ääniraidan kieli
+26;englanti;041$e;libreton kieli
+26;bulgaria;041$d;lauletun tai puhutun aineiston kieli
+26;scr;041$a;tekstin tai ääniraidan kieli
+25;pastu;041$a;tekstin tai ääniraidan kieli
+24;romania;041$h;alkuperäinen kieli
+24;islanti;041$b;tiivistelmän tai abstraktin kieli
+24;kreikka (1453-);041$b;tiivistelmän tai abstraktin kieli
+24;swahili;041$a;tekstin tai ääniraidan kieli
+23;romani;041$j;tekstityksen kieli
+23;latvia;041$h;alkuperäinen kieli
+23;urdu;041$a;tekstin tai ääniraidan kieli
+22;komi (komipermjakki;041$a;tekstin tai ääniraidan kieli
+21;tiibet;041$h;alkuperäinen kieli
+20;sloveeni;041$h;alkuperäinen kieli
+20;(en;041$h;alkuperäinen kieli
+20;sloveeni;041$a;tekstin tai ääniraidan kieli
+20;indonesia;041$a;tekstin tai ääniraidan kieli
+20;amhara;041$a;tekstin tai ääniraidan kieli
+19;kurdi;041$d;lauletun tai puhutun aineiston kieli
+18;bulgaria;041$h;alkuperäinen kieli
+18;ukraina;041$d;lauletun tai puhutun aineiston kieli
+18;korea;041$d;lauletun tai puhutun aineiston kieli
+18;tsekki;041$b;tiivistelmän tai abstraktin kieli
+17;saksa;041$k;välikäännösten kieli
+17;muinaisnorja;041$h;alkuperäinen kieli
+17;kiina;041$b;tiivistelmän tai abstraktin kieli
+16;katalaani;041$j;tekstityksen kieli
+16;saamelaiskielet;041$h;alkuperäinen kieli
+16;swahili;041$d;lauletun tai puhutun aineiston kieli
+16;kirkkoslaavi;041$d;lauletun tai puhutun aineiston kieli
+16;katalaani;041$d;lauletun tai puhutun aineiston kieli
+16;arabia;041$b;tiivistelmän tai abstraktin kieli
+16;jiddis;041$a;tekstin tai ääniraidan kieli
+16;romani;041$a;tekstin tai ääniraidan kieli
+15;hollanti;041$k;välikäännösten kieli
+15;slovakki;041$h;alkuperäinen kieli
+15;liettua;041$h;alkuperäinen kieli
+15;g);041$h;alkuperäinen kieli
+15;esperanto;041$h;alkuperäinen kieli
+15;somali;041$d;lauletun tai puhutun aineiston kieli
+15;hollanti;041$d;lauletun tai puhutun aineiston kieli
+15;puola;041$b;tiivistelmän tai abstraktin kieli
+15;tamil;041$a;tekstin tai ääniraidan kieli
+15;iiri;041$a;tekstin tai ääniraidan kieli
+14;jap;041$h;alkuperäinen kieli
+14;sanskrit;041$a;tekstin tai ääniraidan kieli
+13;indonesia;041$j;tekstityksen kieli
+13;suomalais-ugrilaiset kielet;041$h;alkuperäinen kieli
+13;suomi;041$e;libreton kieli
+13;wolof;041$d;lauletun tai puhutun aineiston kieli
+13;urdu;041$d;lauletun tai puhutun aineiston kieli
+13;bambara;041$d;lauletun tai puhutun aineiston kieli
+12;tamasek;041$d;lauletun tai puhutun aineiston kieli
+12;sanskrit;041$d;lauletun tai puhutun aineiston kieli
+12;latvia;041$d;lauletun tai puhutun aineiston kieli
+12;ladino;041$d;lauletun tai puhutun aineiston kieli
+12;suomalais-ugrilaiset kielet;041$d;lauletun tai puhutun aineiston kieli
+12;suomalais-ugrilaiset kielet;041$b;tiivistelmän tai abstraktin kieli
+11;tiibet;041$d;lauletun tai puhutun aineiston kieli
+11;muinaisranska (n. 842-1400);041$d;lauletun tai puhutun aineiston kieli
+11;udmurtti;041$a;tekstin tai ääniraidan kieli
+10;ruotsi;041$k;välikäännösten kieli
+10;syyria;041$h;alkuperäinen kieli
+10;somali;041$h;alkuperäinen kieli
+10;kroatia;041$h;alkuperäinen kieli
+10;bengali;041$h;alkuperäinen kieli
+10;thai;041$b;tiivistelmän tai abstraktin kieli
+10;somali;041$b;tiivistelmän tai abstraktin kieli
+10;heprea;041$b;tiivistelmän tai abstraktin kieli
+10;muinaiskreikka (-1453);041$b;tiivistelmän tai abstraktin kieli
+10;pandzabi;041$a;tekstin tai ääniraidan kieli
+10;makedonia;041$a;tekstin tai ääniraidan kieli
+10;germaaniset kielet;041$a;tekstin tai ääniraidan kieli
+9;turkki;041$k;välikäännösten kieli
+9;latina;041$k;välikäännösten kieli
+9;baski;041$h;alkuperäinen kieli
+9;joruba;041$d;lauletun tai puhutun aineiston kieli
+9;serbia;041$d;lauletun tai puhutun aineiston kieli
+9;makedonia;041$d;lauletun tai puhutun aineiston kieli
+9;ge'ez;041$d;lauletun tai puhutun aineiston kieli
+9;amhara;041$d;lauletun tai puhutun aineiston kieli
+9;määrittelemätön;041$b;tiivistelmän tai abstraktin kieli
+9;saame;041$a;tekstin tai ääniraidan kieli
+9;gaeli;041$a;tekstin tai ääniraidan kieli
+9;slevi;041$a;tekstin tai ääniraidan kieli
+8;vietnam;041$j;tekstityksen kieli
+8;malaiji;041$j;tekstityksen kieli
+8;afrikaans;041$h;alkuperäinen kieli
+8;saksa;041$e;libreton kieli
+8;kymri;041$d;lauletun tai puhutun aineiston kieli
+8;indonesia;041$d;lauletun tai puhutun aineiston kieli
+8;galicia;041$d;lauletun tai puhutun aineiston kieli
+8;fulani;041$d;lauletun tai puhutun aineiston kieli
+8;bretoni;041$d;lauletun tai puhutun aineiston kieli
+8;baski;041$d;lauletun tai puhutun aineiston kieli
+8;armenia;041$d;lauletun tai puhutun aineiston kieli
+8;turkki;041$b;tiivistelmän tai abstraktin kieli
+8;tigre;041$a;tekstin tai ääniraidan kieli
+8;tiibet;041$a;tekstin tai ääniraidan kieli
+8;georgia;041$a;tekstin tai ääniraidan kieli
+8;burma;041$a;tekstin tai ääniraidan kieli
+8;afrikaans;041$a;tekstin tai ääniraidan kieli
+7;scr;041$h;alkuperäinen kieli
+7;albania;041$h;alkuperäinen kieli
+7;ruotsi;041$g;liiteaineiston kieli
+7;ranska;041$e;libreton kieli
+7;zulu;041$d;lauletun tai puhutun aineiston kieli
+7;vietnam;041$d;lauletun tai puhutun aineiston kieli
+7;thai;041$d;lauletun tai puhutun aineiston kieli
+7;fääri;041$d;lauletun tai puhutun aineiston kieli
+7;esperanto;041$d;lauletun tai puhutun aineiston kieli
+7;kelttiläiset kielet;041$d;lauletun tai puhutun aineiston kieli
+7;kymri;041$a;tekstin tai ääniraidan kieli
+7;viittomakielet;041$a;tekstin tai ääniraidan kieli
+7;scc;041$a;tekstin tai ääniraidan kieli
+7;nepali;041$a;tekstin tai ääniraidan kieli
+6;vietnam;041$h;alkuperäinen kieli
+6;indoarjalaiset kielet;041$h;alkuperäinen kieli
+6;mari;041$h;alkuperäinen kieli
+6;indoarjalaiset kielet;041$d;lauletun tai puhutun aineiston kieli
+6;kroatia;041$d;lauletun tai puhutun aineiston kieli
+6;bosnia;041$d;lauletun tai puhutun aineiston kieli
+6;scr;041$b;tiivistelmän tai abstraktin kieli
+6;liettua;041$b;tiivistelmän tai abstraktin kieli
+6;malaiji;041$a;tekstin tai ääniraidan kieli
+6;kalaallisut;041$a;tekstin tai ääniraidan kieli
+6;fääri;041$a;tekstin tai ääniraidan kieli
+6;baski;041$a;tekstin tai ääniraidan kieli
+6;aramea;041$a;tekstin tai ääniraidan kieli
+5;ukraina;041$h;alkuperäinen kieli
+5;scc;041$h;alkuperäinen kieli
+5;muinaisegypti;041$h;alkuperäinen kieli
+5;Keski-Amerikan intiaanikielet;041$h;alkuperäinen kieli
+5;aramea;041$h;alkuperäinen kieli
+5;muinaisenglanti (n. 450-1100);041$h;alkuperäinen kieli
+5;hollanti;041$g;liiteaineiston kieli
+5;sona;041$d;lauletun tai puhutun aineiston kieli
+5;saame;041$d;lauletun tai puhutun aineiston kieli
+5;mongoli;041$d;lauletun tai puhutun aineiston kieli
+5;liettua;041$d;lauletun tai puhutun aineiston kieli
+5;albania;041$d;lauletun tai puhutun aineiston kieli
+5;afrikaans;041$d;lauletun tai puhutun aineiston kieli
+5;saame;041$b;tiivistelmän tai abstraktin kieli
+5;farsi;041$b;tiivistelmän tai abstraktin kieli
+5;latvia;041$b;tiivistelmän tai abstraktin kieli
+5;karjala;041$b;tiivistelmän tai abstraktin kieli
+5;xhosa;041$a;tekstin tai ääniraidan kieli
+5;turkmeeni;041$a;tekstin tai ääniraidan kieli
+5;tagalog;041$a;tekstin tai ääniraidan kieli
+5;syyria;041$a;tekstin tai ääniraidan kieli
+5;skotti;041$a;tekstin tai ääniraidan kieli
+5;indoeurooppalaiset kielet;041$a;tekstin tai ääniraidan kieli
+4;ruotsi;041$m;liiteaineiston alkuperäinen kieli
+4;ranska;041$k;välikäännösten kieli
+4;latina;041$j;tekstityksen kieli
+4;thai;041$h;alkuperäinen kieli
+4;saame;041$h;alkuperäinen kieli
+4;hindi;041$h;alkuperäinen kieli
+4;georgia;041$h;alkuperäinen kieli
+4;(fi;041$h;alkuperäinen kieli
+4;keskienglanti (n. 1100-1500);041$h;alkuperäinen kieli
+4;kopti;041$h;alkuperäinen kieli
+4;espanja;041$g;liiteaineiston kieli
+4;unkari;041$g;liiteaineiston kieli
+4;ruotsi;041$e;libreton kieli
+4;italia;041$e;libreton kieli
+4;Etelä-Amerikan intiaanikielet;041$d;lauletun tai puhutun aineiston kieli
+4;nubialaiset kielet;041$d;lauletun tai puhutun aineiston kieli
+4;mandingo;041$d;lauletun tai puhutun aineiston kieli
+4;muinaiskreikka (-1453);041$d;lauletun tai puhutun aineiston kieli
+4;georgia;041$d;lauletun tai puhutun aineiston kieli
+4;bengali;041$d;lauletun tai puhutun aineiston kieli
+4;azeri;041$d;lauletun tai puhutun aineiston kieli
+4;slovakki;041$b;tiivistelmän tai abstraktin kieli
+4;korea;041$b;tiivistelmän tai abstraktin kieli
+4;katalaani;041$b;tiivistelmän tai abstraktin kieli
+4;bulgaria;041$b;tiivistelmän tai abstraktin kieli
+4;zulu;041$a;tekstin tai ääniraidan kieli
+4;vatja;041$a;tekstin tai ääniraidan kieli
+4;telugu;041$a;tekstin tai ääniraidan kieli
+4;ersä;041$a;tekstin tai ääniraidan kieli
+4;moksa;041$a;tekstin tai ääniraidan kieli
+4;khmer;041$a;tekstin tai ääniraidan kieli
+4;indoarjalaiset kielet;041$a;tekstin tai ääniraidan kieli
+4;havaiji;041$a;tekstin tai ääniraidan kieli
+4;mari;041$a;tekstin tai ääniraidan kieli
+4;bengali;041$a;tekstin tai ääniraidan kieli
+4;valkovenäjä;041$a;tekstin tai ääniraidan kieli
+3;tamil;041$j;tekstityksen kieli
+3;kazakki;041$j;tekstityksen kieli
+3;(sw;041$h;alkuperäinen kieli
+3;ron;041$h;alkuperäinen kieli
+3;romani;041$h;alkuperäinen kieli
+3;kurdi;041$h;alkuperäinen kieli
+3;keskiyläsaksa (n. 1050-1500);041$h;alkuperäinen kieli
+3;galicia;041$h;alkuperäinen kieli
+3;fääri;041$h;alkuperäinen kieli
+3;akkadi;041$h;alkuperäinen kieli
+3;098;041$h;alkuperäinen kieli
+3;useita kieliä;041$g;liiteaineiston kieli
+3;italia;041$g;liiteaineiston kieli
+3;tataari;041$d;lauletun tai puhutun aineiston kieli
+3;sardi;041$d;lauletun tai puhutun aineiston kieli
+3;saame;041$d;lauletun tai puhutun aineiston kieli
+3;sloveeni;041$d;lauletun tai puhutun aineiston kieli
+3;slovakki;041$d;lauletun tai puhutun aineiston kieli
+3;navajo;041$d;lauletun tai puhutun aineiston kieli
+3;malagassi;041$d;lauletun tai puhutun aineiston kieli
+3;lingala;041$d;lauletun tai puhutun aineiston kieli
+3;khmer;041$d;lauletun tai puhutun aineiston kieli
+3;havaiji;041$d;lauletun tai puhutun aineiston kieli
+3;keskienglanti (n. 1100-1500);041$d;lauletun tai puhutun aineiston kieli
+3;sloveeni;041$b;tiivistelmän tai abstraktin kieli
+3;scc;041$b;tiivistelmän tai abstraktin kieli
+3;indonesia;041$b;tiivistelmän tai abstraktin kieli
+3;hindi;041$b;tiivistelmän tai abstraktin kieli
+3;joruba;041$a;tekstin tai ääniraidan kieli
+3;tigrinja;041$a;tekstin tai ääniraidan kieli
+3;tataari;041$a;tekstin tai ääniraidan kieli
+3;sona;041$a;tekstin tai ääniraidan kieli
+3;saame;041$a;tekstin tai ääniraidan kieli
+3;ketsua;041$a;tekstin tai ääniraidan kieli
+3;luokittelemattomat kielet;041$a;tekstin tai ääniraidan kieli
+3;mandar;041$a;tekstin tai ääniraidan kieli
+3;lao;041$a;tekstin tai ääniraidan kieli
+3;fra;041$a;tekstin tai ääniraidan kieli
+3;filipino;041$a;tekstin tai ääniraidan kieli
+3;fi;041$a;tekstin tai ääniraidan kieli
+3;armenia;041$a;tekstin tai ääniraidan kieli
+2;tsekki;041$m;liiteaineiston alkuperäinen kieli
+2;suomi;041$k;välikäännösten kieli
+2;telugu;041$j;tekstityksen kieli
+2;saamelaiskielet;041$j;tekstityksen kieli
+2;farsi;041$j;tekstityksen kieli
+2;herero;041$j;tekstityksen kieli
+2;muinaiskreikka (-1453);041$j;tekstityksen kieli
+2;korni;041$j;tekstityksen kieli
+2;tsetseeni;041$j;tekstityksen kieli
+2;urdu;041$h;alkuperäinen kieli
+2;swahili;041$h;alkuperäinen kieli
+2;(sp;041$h;alkuperäinen kieli
+2;slaavilaiset kielet;041$h;alkuperäinen kieli
+2;(ru;041$h;alkuperäinen kieli
+2;pastu;041$h;alkuperäinen kieli
+2;paali;041$h;alkuperäinen kieli
+2;(no;041$h;alkuperäinen kieli
+2;n);041$h;alkuperäinen kieli
+2;mongoli;041$h;alkuperäinen kieli
+2;mol;041$h;alkuperäinen kieli
+2;malta;041$h;alkuperäinen kieli
+2;luokittelemattomat kielet;041$h;alkuperäinen kieli
+2;makedonia;041$h;alkuperäinen kieli
+2;kikuju;041$h;alkuperäinen kieli
+2;it;041$h;alkuperäinen kieli
+2;indonesia;041$h;alkuperäinen kieli
+2;gudzarati;041$h;alkuperäinen kieli
+2;cree;041$h;alkuperäinen kieli
+2;kelttiläiset kielet;041$h;alkuperäinen kieli
+2;azeri;041$h;alkuperäinen kieli
+2;afroaasialaiset kielet;041$h;alkuperäinen kieli
+2;a);041$h;alkuperäinen kieli
+2;venäjä;041$g;liiteaineiston kieli
+2;tanska;041$g;liiteaineiston kieli
+2;englanti;041$f;sisällysluettelon kieli
+2;tuva;041$d;lauletun tai puhutun aineiston kieli
+2;tagalog;041$d;lauletun tai puhutun aineiston kieli
+2;tamil;041$d;lauletun tai puhutun aineiston kieli
+2;tahiti;041$d;lauletun tai puhutun aineiston kieli
+2;songhai;041$d;lauletun tai puhutun aineiston kieli
+2;muinaisprovensaali (-1500);041$d;lauletun tai puhutun aineiston kieli
+2;ersä;041$d;lauletun tai puhutun aineiston kieli
+2;maori;041$d;lauletun tai puhutun aineiston kieli
+2;kirgiisi;041$d;lauletun tai puhutun aineiston kieli
+2;kalaallisut;041$d;lauletun tai puhutun aineiston kieli
+2;keskiyläsaksa (n. 1050-1500);041$d;lauletun tai puhutun aineiston kieli
+2;duala;041$d;lauletun tai puhutun aineiston kieli
+2;kreolit ja pidginit;041$d;lauletun tai puhutun aineiston kieli
+2;cree;041$d;lauletun tai puhutun aineiston kieli
+2;valkovenäjä;041$d;lauletun tai puhutun aineiston kieli
+2;afroaasialaiset kielet;041$d;lauletun tai puhutun aineiston kieli
+2;892;041$d;lauletun tai puhutun aineiston kieli
+2;78.;041$d;lauletun tai puhutun aineiston kieli
+2;. ;;041$d;lauletun tai puhutun aineiston kieli
+2;ukraina;041$b;tiivistelmän tai abstraktin kieli
+2;twi;041$b;tiivistelmän tai abstraktin kieli
+2;saame;041$b;tiivistelmän tai abstraktin kieli
+2;sanskrit;041$b;tiivistelmän tai abstraktin kieli
+2;kurdi;041$b;tiivistelmän tai abstraktin kieli
+2;kroatia;041$b;tiivistelmän tai abstraktin kieli
+2;gaeli;041$b;tiivistelmän tai abstraktin kieli
+2;bengali;041$b;tiivistelmän tai abstraktin kieli
+2;muinaisenglanti (n. 450-1100);041$b;tiivistelmän tai abstraktin kieli
+2;albania;041$b;tiivistelmän tai abstraktin kieli
+2;afroaasialaiset kielet;041$b;tiivistelmän tai abstraktin kieli
+2;wolof;041$a;tekstin tai ääniraidan kieli
+2;vk;041$a;tekstin tai ääniraidan kieli
+2;twi;041$a;tekstin tai ääniraidan kieli
+2;thaikielet;041$a;tekstin tai ääniraidan kieli
+2;sotho;041$a;tekstin tai ääniraidan kieli
+2;saame;041$a;tekstin tai ääniraidan kieli
+2;paali;041$a;tekstin tai ääniraidan kieli
+2;ndonga;041$a;tekstin tai ääniraidan kieli
+2;maya-kielet;041$a;tekstin tai ääniraidan kieli
+2;mongoli;041$a;tekstin tai ääniraidan kieli
+2;lingala;041$a;tekstin tai ääniraidan kieli
+2;kazakki;041$a;tekstin tai ääniraidan kieli
+2;jap;041$a;tekstin tai ääniraidan kieli
+2;iranilaiset kielet;041$a;tekstin tai ääniraidan kieli
+2;hausa;041$a;tekstin tai ääniraidan kieli
+2;sveitsinsaksa;041$a;tekstin tai ääniraidan kieli
+2;friisi;041$a;tekstin tai ääniraidan kieli
+2;muinaisranska (n. 842-1400);041$a;tekstin tai ääniraidan kieli
+2;esp;041$a;tekstin tai ääniraidan kieli
+2;;041$a;tekstin tai ääniraidan kieli
+2;kirkkoslaavi;041$a;tekstin tai ääniraidan kieli
+2;tsetseeni;041$a;tekstin tai ääniraidan kieli
+2;akan;041$a;tekstin tai ääniraidan kieli
+1;venäjä;041$k;välikäännösten kieli
+1;useita kieliä;041$k;välikäännösten kieli
+1;italia;041$k;välikäännösten kieli
+1;määrittelemätön;041$j;tekstityksen kieli
+1;altailaiset kielet;041$j;tekstityksen kieli
+1;tumbuka;041$j;tekstityksen kieli
+1;sinhali;041$j;tekstityksen kieli
+1;viittomakielet;041$j;tekstityksen kieli
+1;sanskrit;041$j;tekstityksen kieli
+1;mongoli;041$j;tekstityksen kieli
+1;malajalam;041$j;tekstityksen kieli
+1;makedonia;041$j;tekstityksen kieli
+1;fra;041$j;tekstityksen kieli
+1;esperanto;041$j;tekstityksen kieli
+1;cree;041$j;tekstityksen kieli
+1;bosnia;041$j;tekstityksen kieli
+1;azeri;041$j;tekstityksen kieli
+1;amhara;041$j;tekstityksen kieli
+1;zce;041$h;alkuperäinen kieli
+1;jupikkikielet;041$h;alkuperäinen kieli
+1;un;041$h;alkuperäinen kieli
+1;udmurtti;041$h;alkuperäinen kieli
+1;tataari;041$h;alkuperäinen kieli
+1;suo;041$h;alkuperäinen kieli
+1;serbia;041$h;alkuperäinen kieli
+1;saame;041$h;alkuperäinen kieli
+1;viittomakielet;041$h;alkuperäinen kieli
+1;se;041$h;alkuperäinen kieli
+1;skotti;041$h;alkuperäinen kieli
+1;Etelä-Amerikan intiaanikielet;041$h;alkuperäinen kieli
+1;r);041$h;alkuperäinen kieli
+1;(po;041$h;alkuperäinen kieli
+1;pl;041$h;alkuperäinen kieli
+1;muinaispersia (n. 600-400 eKr.);041$h;alkuperäinen kieli
+1;ndonga;041$h;alkuperäinen kieli
+1;Pohjois-Amerikan intiaanikielet;041$h;alkuperäinen kieli
+1;ersä;041$h;alkuperäinen kieli
+1;(mu;041$h;alkuperäinen kieli
+1;moksa;041$h;alkuperäinen kieli
+1;l);041$h;alkuperäinen kieli
+1;krj;041$h;alkuperäinen kieli
+1;komi (komipermjakki;041$h;alkuperäinen kieli
+1;kirgiisi;041$h;alkuperäinen kieli
+1;kazakki;041$h;alkuperäinen kieli
+1;kalaallisut;041$h;alkuperäinen kieli
+1;(it;041$h;alkuperäinen kieli
+1;yläsorbi;041$h;alkuperäinen kieli
+1;herero;041$h;alkuperäinen kieli
+1;gaeli;041$h;alkuperäinen kieli
+1;gic;041$h;alkuperäinen kieli
+1;germaaniset kielet;041$h;alkuperäinen kieli
+1;gel;041$h;alkuperäinen kieli
+1;(ge;041$h;alkuperäinen kieli
+1;g9;041$h;alkuperäinen kieli
+1;g];041$h;alkuperäinen kieli
+1;fra;041$h;alkuperäinen kieli
+1;f i;041$h;alkuperäinen kieli
+1;[en;041$h;alkuperäinen kieli
+1;dzongkha;041$h;alkuperäinen kieli
+1;(du;041$h;alkuperäinen kieli
+1;alasorbi;041$h;alkuperäinen kieli
+1;(da;041$h;alkuperäinen kieli
+1;(cz;041$h;alkuperäinen kieli
+1;kirkkoslaavi;041$h;alkuperäinen kieli
+1;burma;041$h;alkuperäinen kieli
+1;valkovenäjä;041$h;alkuperäinen kieli
+1;armenia;041$h;alkuperäinen kieli
+1;82.;041$h;alkuperäinen kieli
+1;ei koodattu;041$h;alkuperäinen kieli
+1;portugali;041$g;liiteaineiston kieli
+1;latina;041$g;liiteaineiston kieli
+1;japani;041$g;liiteaineiston kieli
+1;kreikka (1453-);041$g;liiteaineiston kieli
+1;fra;041$g;liiteaineiston kieli
+1;venäjä;041$e;libreton kieli
+1;latina;041$e;libreton kieli
+1;viro;041$e;libreton kieli
+1;muinaisenglanti (n. 450-1100);041$e;libreton kieli
+1;jupikkikielet;041$d;lauletun tai puhutun aineiston kieli
+1;xhosa;041$d;lauletun tai puhutun aineiston kieli
+1;uzbekki;041$d;lauletun tai puhutun aineiston kieli
+1;umbundu;041$d;lauletun tai puhutun aineiston kieli
+1;uiguuri;041$d;lauletun tai puhutun aineiston kieli
+1;udmurtti;041$d;lauletun tai puhutun aineiston kieli
+1;tonga (Tonga);041$d;lauletun tai puhutun aineiston kieli
+1;tonga (Malawi);041$d;lauletun tai puhutun aineiston kieli
+1;tigre;041$d;lauletun tai puhutun aineiston kieli
+1;telugu;041$d;lauletun tai puhutun aineiston kieli
+1;syyria;041$d;lauletun tai puhutun aineiston kieli
+1;sotho;041$d;lauletun tai puhutun aineiston kieli
+1;sindhi;041$d;lauletun tai puhutun aineiston kieli
+1;saame;041$d;lauletun tai puhutun aineiston kieli
+1;romaaniset kielet;041$d;lauletun tai puhutun aineiston kieli
+1;ketsua;041$d;lauletun tai puhutun aineiston kieli
+1;pandzabi;041$d;lauletun tai puhutun aineiston kieli
+1;papualaiset kielet;041$d;lauletun tai puhutun aineiston kieli
+1;njandza;041$d;lauletun tai puhutun aineiston kieli
+1;nigeriläis-kongolaiset kielet;041$d;lauletun tai puhutun aineiston kieli
+1;moksa;041$d;lauletun tai puhutun aineiston kieli
+1;malaiji;041$d;lauletun tai puhutun aineiston kieli
+1;kongo;041$d;lauletun tai puhutun aineiston kieli
+1;kazakki;041$d;lauletun tai puhutun aineiston kieli
+1;irokeesikielet;041$d;lauletun tai puhutun aineiston kieli
+1;igbo;041$d;lauletun tai puhutun aineiston kieli
+1;ewondo;041$d;lauletun tai puhutun aineiston kieli
+1;portugaliin perustuvat kreolit ja pidginit;041$d;lauletun tai puhutun aineiston kieli
+1;korsika;041$d;lauletun tai puhutun aineiston kieli
+1;chinook-jargon;041$d;lauletun tai puhutun aineiston kieli
+1;tsetseeni;041$d;lauletun tai puhutun aineiston kieli
+1;Keski-Amerikan intiaanikielet;041$d;lauletun tai puhutun aineiston kieli
+1;berberikielet;041$d;lauletun tai puhutun aineiston kieli
+1;baskiiri;041$d;lauletun tai puhutun aineiston kieli
+1;aramea;041$d;lauletun tai puhutun aineiston kieli
+1;algonkin-kielet;041$d;lauletun tai puhutun aineiston kieli
+1;13;041$d;lauletun tai puhutun aineiston kieli
+1;11;041$d;lauletun tai puhutun aineiston kieli
+1;vietnam;041$b;tiivistelmän tai abstraktin kieli
+1;tiibet;041$b;tiivistelmän tai abstraktin kieli
+1;saame;041$b;tiivistelmän tai abstraktin kieli
+1;viittomakielet;041$b;tiivistelmän tai abstraktin kieli
+1;skotti;041$b;tiivistelmän tai abstraktin kieli
+1;romani;041$b;tiivistelmän tai abstraktin kieli
+1;mongoli;041$b;tiivistelmän tai abstraktin kieli
+1;maori;041$b;tiivistelmän tai abstraktin kieli
+1;komi (komipermjakki;041$b;tiivistelmän tai abstraktin kieli
+1;kat;041$b;tiivistelmän tai abstraktin kieli
+1;jap;041$b;tiivistelmän tai abstraktin kieli
+1;fääri;041$b;tiivistelmän tai abstraktin kieli
+1;esp;041$b;tiivistelmän tai abstraktin kieli
+1;;en;041$b;tiivistelmän tai abstraktin kieli
+1;een;041$b;tiivistelmän tai abstraktin kieli
+1;dinka;041$b;tiivistelmän tai abstraktin kieli
+1;kirkkoslaavi;041$b;tiivistelmän tai abstraktin kieli
+1;Keski-Amerikan intiaanikielet;041$b;tiivistelmän tai abstraktin kieli
+1;afrikaans;041$b;tiivistelmän tai abstraktin kieli
+1;zwx;041$a;tekstin tai ääniraidan kieli
+1;z<;041$a;tekstin tai ääniraidan kieli
+1;jupikkikielet;041$a;tekstin tai ääniraidan kieli
+1;uzbekki;041$a;tekstin tai ääniraidan kieli
+1;us;041$a;tekstin tai ääniraidan kieli
+1;uiguuri;041$a;tekstin tai ääniraidan kieli
+1;tamasek;041$a;tekstin tai ääniraidan kieli
+1;Swe;041$a;tekstin tai ääniraidan kieli
+1;sumeri;041$a;tekstin tai ääniraidan kieli
+1;saame;041$a;tekstin tai ääniraidan kieli
+1;sidamo;041$a;tekstin tai ääniraidan kieli
+1;selkuppi;041$a;tekstin tai ääniraidan kieli
+1;sisilia;041$a;tekstin tai ääniraidan kieli
+1;Etelä-Amerikan intiaanikielet;041$a;tekstin tai ääniraidan kieli
+1;romaaniset kielet;041$a;tekstin tai ääniraidan kieli
+1;rng;041$a;tekstin tai ääniraidan kieli
+1;muinaisprovensaali (-1500);041$a;tekstin tai ääniraidan kieli
+1;filippiiniläiset kielet;041$a;tekstin tai ääniraidan kieli
+1;muinaisnorja;041$a;tekstin tai ääniraidan kieli
+1;ngg;041$a;tekstin tai ääniraidan kieli
+1;ng;041$a;tekstin tai ääniraidan kieli
+1;ng;041$a;tekstin tai ääniraidan kieli
+1;Pohjois-Amerikan intiaanikielet;041$a;tekstin tai ääniraidan kieli
+1;malagassi;041$a;tekstin tai ääniraidan kieli
+1;mla;041$a;tekstin tai ääniraidan kieli
+1;maori;041$a;tekstin tai ääniraidan kieli
+1;malajalam;041$a;tekstin tai ääniraidan kieli
+1;li;041$a;tekstin tai ääniraidan kieli
+1;karen;041$a;tekstin tai ääniraidan kieli
+1;interlingua;041$a;tekstin tai ääniraidan kieli
+1;inuktitut;041$a;tekstin tai ääniraidan kieli
+1;igbo;041$a;tekstin tai ääniraidan kieli
+1;gudzarati;041$a;tekstin tai ääniraidan kieli
+1;keskiyläsaksa (n. 1050-1500);041$a;tekstin tai ääniraidan kieli
+1;galicia;041$a;tekstin tai ääniraidan kieli
+1;gfr;041$a;tekstin tai ääniraidan kieli
+1;ge'ez;041$a;tekstin tai ääniraidan kieli
+1;err;041$a;tekstin tai ääniraidan kieli
+1;en;041$a;tekstin tai ääniraidan kieli
+1;muinaisegypti;041$a;tekstin tai ääniraidan kieli
+1;dzongkha;041$a;tekstin tai ääniraidan kieli
+1;korsika;041$a;tekstin tai ääniraidan kieli
+1;kopti;041$a;tekstin tai ääniraidan kieli
+1;cm;041$a;tekstin tai ääniraidan kieli
+1;chinook-jargon;041$a;tekstin tai ääniraidan kieli
+1;kaukasialaiset kielet;041$a;tekstin tai ääniraidan kieli
+1;bali;041$a;tekstin tai ääniraidan kieli
+1;apassikielet;041$a;tekstin tai ääniraidan kieli
+1;87-;041$a;tekstin tai ääniraidan kieli
+1;76-;041$a;tekstin tai ääniraidan kieli
+1;318;041$a;tekstin tai ääniraidan kieli
+1;21;041$a;tekstin tai ääniraidan kieli
+1;00-;041$a;tekstin tai ääniraidan kieli
+1;ranska;041$2;undefined

@@ -4,6 +4,7 @@
 
 use strict;
 use utf8;
+use Try::Tiny;
 use List::MoreUtils qw(uniq);
 
 binmode(STDOUT, ':utf8');
@@ -27,7 +28,7 @@ open (my $KEYWORDS2, '>:utf8', $tiedosto . '.650_651_vain_sanat');
 open (my $THESAURI,'>:utf8', $tiedosto . '.650_651_2');
 open (my $VUOSI,'>:utf8', $tiedosto . '.vuosi');
 open (my $MAAKOODIT,'>:utf8', $tiedosto . '.julkaisumaat');
-
+open (my $KIELET_008,'>:utf8', $tiedosto . '.kielet_008');
 
 my $currentRecord = substr(<$inputfile>, 0, 9); # Read the ID of the first record in file
 seek $inputfile, 0, 0;
@@ -60,6 +61,7 @@ while (<$inputfile>)
 	elsif ($fieldCode eq '008')
 	{
 		chomp;
+		# Read publishing country
 	  if ($fieldCode eq '008') {
 	    my $country = substr($fieldContent, 15, 3);
 	    if (substr($country, 2, 1) eq '^') {
@@ -68,8 +70,17 @@ while (<$inputfile>)
 	    $maakoodiCount++;
 	    print $MAAKOODIT $country . "\n";
 	  }
+	  # Read publication year
 	  my $vuosi = substr($fieldContent, 7, 4);
 		print $VUOSI $vuosi . "\n";
+		# Read main language code from 008
+		try {
+			my $languageCode = substr($fieldContent, 35, 3);
+			print $KIELET_008 $languageCode . "\n";
+		} catch {
+			warn "Error with line: " . $_ . "\n";
+		}
+		
 	}
 
 	elsif ($fieldCode eq '084' && $fieldContent =~ /2ykl/i)
@@ -102,7 +113,7 @@ while (<$inputfile>)
 		for (@sisaltotyyppi_split)
 		{
 			chomp;
-			unless (length $_ < 2) 
+			unless (length $_ < 2)
 			{
 				print $SISALTOTYYPPI $_ . "\n";
 				print $SISALTOJAMEDIA "336," . $_ . "\n";
@@ -117,7 +128,7 @@ while (<$inputfile>)
 		for (@mediatyyppi_split)
 		{
 			chomp;
-			unless (length $_ < 2) 
+			unless (length $_ < 2)
 			{
 				print $MEDIATYYPPI $_ . "\n";
 				print $SISALTOJAMEDIA "337," . $_ . "\n";
@@ -166,6 +177,8 @@ close $YKL;
 close $KEYWORDS;
 close $KEYWORDS2;
 close $THESAURI;
+close $MAAKOODIT;
+close $KIELET_008;
 
 sub perRec
 {

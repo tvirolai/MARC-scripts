@@ -1,7 +1,7 @@
 /* jshint node: true */
 
-/* This script reads and Aleph Seq dump and prints a the contents of 
- * content and media type fields (336 and 337) on to output file (on
+/* This script reads an Aleph Seq dump file and prints the contents of 
+ * content and media type fields (336 and 337) to output file (on
  * one line). 
  */ 
 
@@ -13,8 +13,8 @@ var fs = require("fs");
 var inputFile = process.argv[2];
 
 if (!inputFile) { 
-	console.log("Usage: node contentAndMediaTypeReport.js inputfile");
-	process.exit();
+  console.log("Usage: node contentAndMediaTypeReport.js inputfile");
+  process.exit();
 }
 
 var rl = readline.createInterface({

@@ -12,7 +12,9 @@ download(getUrls(), fs.createWriteStream('../data.seq'));
 function download(urls, outputStream) {
   console.log('Downloading file ' + urls[0] + '.');
   http.get(urls.shift(), (response) => { response.pipe(outputStream);
-    outputStream.on('finish', () => { if (urls.length > 0) { download(urls, fs.createWriteStream('../data.seq', { flags: 'a' })); } else { console.log('All done!'); }});
+    outputStream.on('finish', () => { 
+      if (urls.length > 0) { download(urls, fs.createWriteStream('../data.seq', { flags: 'a' })); 
+    } else { console.log('All done!'); }});
   });
 }
 

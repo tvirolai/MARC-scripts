@@ -5,19 +5,14 @@ että palvelimella on 10 tiedostoa (alina00.seq - alina09.seq). Jos tiedosto on 
 
 'use strict';
 
-var http = require('http');
-var fs = require('fs');
-var _ = require('underscore');
+const http = require('http'), fs = require('fs'), _ = require('underscore');
 
 download(getUrls(), fs.createWriteStream('../data.seq'));
 
 function download(urls, outputStream) {
   console.log('Downloading file ' + urls[0] + '.');
-  http.get(urls.shift(), function (response) {
-    response.pipe(outputStream);
-    outputStream.on('finish', function () {
-      if (urls.length > 0) { download(urls, fs.createWriteStream('../data.seq', { flags: 'a' })); } else { console.log('All done!'); }
-    });
+  http.get(urls.shift(), (response) => { response.pipe(outputStream);
+    outputStream.on('finish', () => { if (urls.length > 0) { download(urls, fs.createWriteStream('../data.seq', { flags: 'a' })); } else { console.log('All done!'); }});
   });
 }
 

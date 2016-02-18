@@ -1,11 +1,11 @@
 (ns readDump
   (:require [clojure.java.io :as io]))
 
-; Ohjelma lataa replikointipalvelimelta Melindan datan yhteen
-; Aleph Sequential -tiedostoon, jonka nimi on määritelty outputFile-arvossa.
+; The program downloads Melinda dump files from the replication server,
+; streaming them into a single, humongous Aleph sequential file defined as "outputFile".
 
 (def outputFile
-  "../dumppi.seq")
+  "/home/tuomo/Melinda-dumppi/dumppi.seq")
 
 (defn URLs
   [urlRange]

@@ -2,7 +2,7 @@
   (:require [clojure.java.io :as io]))
 
 ; The program downloads Melinda dump files from the replication server,
-; streaming them into a single, humongous Aleph sequential file defined as "outputFile".
+; streaming them into a single, humongous Aleph sequential file defined as the var "outputFile".
 
 (def outputFile
   "/home/tuomo/Melinda-dumppi/dumppi.seq")

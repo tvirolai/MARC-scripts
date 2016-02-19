@@ -22,10 +22,6 @@
       (io/delete-file file))
     (println (str "Created file " file "."))))
 
-(defn file-exists?
-  [file]
-  (.exists (io/as-file file)))
-
 (defn download [uri file]
   (try
     (with-open [in (io/input-stream uri) 

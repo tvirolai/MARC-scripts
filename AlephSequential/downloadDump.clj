@@ -25,11 +25,11 @@
 (defn download [uri file]
   (try
     (with-open [in (io/input-stream uri) 
-      out (io/output-stream file :append true)]
+                out (io/output-stream file :append true)]
       (println (str "Downloading file " uri "."))
       (io/copy in out))
   (catch java.io.FileNotFoundException e
-    (prn (str "Not found: " uri)))))
+    (println (str "Not found: " uri)))))
 
 (delete-existing outputFile)
 

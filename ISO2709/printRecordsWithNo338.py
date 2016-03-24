@@ -20,7 +20,8 @@ def read(inputfile):
             try:
                 record = next(reader)
                 totalCount += 1
-                if not testFor338(record):
+                if not testFor336To338(record):
+                    print(record)
                     no338Count += 1
                     try:
                         writer.write(record)

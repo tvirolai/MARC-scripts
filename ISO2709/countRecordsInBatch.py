@@ -7,30 +7,27 @@ import sys
 
 def read(inputfile):
     totalCount = 0
-    poikasCount = 0
+    supplementCount = 0
     with open(inputfile, 'rb') as f:
         reader = MARCReader(f)
         while True:
             try:
                 record = next(reader)
                 totalCount += 1
-                if (isPoikanen(record)):
-                    poikasCount += 1
+                if isSupplement(record):
+                    supplementCount += 1
             except UnicodeDecodeError:
-                print("Merkistövirhe")
+                print("Merkistövirhe.")
                 next
             except StopIteration:
                 print("Tiedoston loppu.")
                 break
     print("Lopullinen määrä: {0} tietuetta, joista poikasia {1}.".format(
-        totalCount, poikasCount))
+        totalCount, supplementCount))
 
 
-def isPoikanen(record):
-    if ('773' in record):
-        return True
-    else:
-        return False
+def isSupplement(record):
+    return '773' in record
 
 if __name__ == '__main__':
     if (len(sys.argv) == 2):

@@ -34,7 +34,6 @@ public class Record {
 				return true;
 			}
 		}
-		
 		return false;
 	}
 	
@@ -57,7 +56,7 @@ public class Record {
 	}
 	
 	public boolean isErroneous() {
-		return (! this.isSupplement() && ! this.has338() && ! this.isDeleted());
+		return (!this.isSupplement() && !this.has338() && !this.isDeleted());
 	}
 	
 	public String getId() {

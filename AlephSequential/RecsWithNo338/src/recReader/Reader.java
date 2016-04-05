@@ -8,7 +8,7 @@ public class Reader {
 	public static void main(String[] args) {
 
 		try {
-			Database tietokanta = new Database("/home/tuomo/Melinda-dumppi/recWithNo338.txt");
+			Database tietokanta = new Database("/home/tuomo/Melinda-dumppi/recsWithNo338.txt");
 			int recs = 0;
 			File file = new File("/home/tuomo/Melinda-dumppi/dumppi.seq");
 			Scanner input = new Scanner(file);
@@ -17,6 +17,9 @@ public class Reader {
 			
 			while (input.hasNextLine()) {
 				String line = input.nextLine();
+				if (line.length() <= 13) {
+					continue;
+				}
 				if (! current.isSame(line)) {
 					if (current.isErroneous()) {
 						tietokanta.addRecord(current);
@@ -31,6 +34,7 @@ public class Reader {
 				//System.out.println(line);
 			}
 			input.close();
+			System.out.println("Read " + recs + " records.");
 			System.out.println("" + tietokanta.recCount() + " dubious recs found.");
 			tietokanta.writeReport();
 			

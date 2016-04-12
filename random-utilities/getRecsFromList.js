@@ -27,6 +27,7 @@ if (process.argv.length !== 4) {
 }
 
 let out = fs.createWriteStream(outputFile);
+let errorLog = fs.createWriteStream("error.log");
 
 const rl = readline.createInterface({
   input: fs.createReadStream(inputFile)
@@ -41,7 +42,7 @@ rl.on("line", line => {
   }
 }).on("close", () => {
   totalRecs = idList.length;
-  getRecords(idList);
+  getRecords(idList.reverse());
 });
 
 
@@ -50,15 +51,21 @@ function getRecords(ids) {
   request(uri, (err, res, body) => {
     readRecs++;
     console.log("Read " + readRecs + " / " + totalRecs + " records.");
-    let record = fromXML(body);
-    //console.log(record);
-    out.write(toISO2709(record));
-    if (ids.length > 0) {
-      setTimeout( () => {
-        getRecords(ids);
-      }, 500);
-    } else {
-      console.log("Done.");
+    try {
+      let record = fromXML(body);
+      out.write(toISO2709(record));
     }
+    catch (err) {
+      errorLog.write("An error occurred.\nRecord: " + uri + "\n" + err + "\n");
+    }
+    finally {
+      if (ids.length > 0) {
+        setTimeout( () => {
+          getRecords(ids);
+        }, 500);
+      } else {
+      console.log("Done.");
+      }
+    }   
   });
 }

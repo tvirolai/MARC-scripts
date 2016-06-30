@@ -1,6 +1,6 @@
 /* jshint node: true */
 
-/* This script serializes the Aleph Sequential dump into JSON and dumps them to MongoDB. */
+/* This script serializes the Aleph Sequential dump into JSON and dumps it to MongoDB. */
 
 'use strict';
 
@@ -15,39 +15,50 @@ const MongoUrl = 'mongodb://localhost:27017/melinda';
 
 const reader = new Serializers.AlephSequential.Reader(fs.createReadStream(file));
 
-let recs = [];
-
 // Initialize collection in db.
 
-MongoClient.connect(MongoUrl, (err, db) => {
-  if (err) throw err;
-  db.collection('data').count( (err, count) => {
-    if (err) throw err;
-    console.log('Dropped existing collection (' + count + ' records).');
-    db.collection('data').drop();
-    db.close();
+const initialize = new Promise( (resolve, reject) => {
+  MongoClient.connect(MongoUrl, (err, db) => {
+    if (err) {
+      reject(err);
+    } else {
+      db.collection('data').count( (err, count) => {
+        if (err) reject(err);
+        db.collection('data').drop();
+        db.close();
+        resolve('Dropped existing collection (' + count + ' records).');
+      });
+    }
   });
 });
 
-reader.on('data', record => {
-  if (recs.length == 10000) {
-    saveToDb(recs);
-    recs = [];
-  };
-  let rec = record.toJsonObject();
-  // Set record ID from field 001 to the unique identifier.
-  rec._id = rec.fields[0].value;
-  recs.push(rec);
-}).on('end', () => {
-  console.log('Done');
+initialize.then( result => {
+  let count = 0;
+  let recs = [];
+  console.log(result);
+  reader.on('data', record => {
+    if (recs.length == 10000) {
+      count += 10000;
+      saveToDb(recs, count);
+      recs = [];
+    };
+    let rec = record.toJsonObject();
+    // Set record ID from field 001 to be the unique identifier.
+    rec._id = rec.fields[0].value;
+    recs.push(rec);
+  }).on('end', () => {
+    console.log('Done');
+  });
 });
 
-function saveToDb(data) {
+
+function saveToDb(data, count) {
   MongoClient.connect(MongoUrl, (err, db) => {
     if (err) throw err;
     else {
       db.collection('data').insert(data, (err, doc) => {
         console.log('Successfully inserted ' + data.length + ' recs to database.');
+        console.log(`Total amount of inserted records: ${count}`);
         db.close();
       });
     }

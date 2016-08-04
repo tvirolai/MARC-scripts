@@ -57,8 +57,7 @@ function saveToDb(data, count) {
     if (err) throw err;
     else {
       db.collection('data').insert(data, (err, doc) => {
-        console.log('Successfully inserted ' + data.length + ' recs to database.');
-        console.log(`Total amount of inserted records: ${count}`);
+        process.stdout.write(`Total amount of inserted records: ${count}\r`);
         db.close();
       });
     }

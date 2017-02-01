@@ -30,7 +30,8 @@
     (println (str "Not found: " uri)))))
 
 (def cli-options
-  [["-f" "--file FILE" "Input file"]])
+  [["-f" "--file FILE" "Input file"
+    :validate [identity "Usage: java -jar download-dump.jar -f outputfile"]]])
 
 (defn -main [& args]
   (let [parsed-args (parse-opts args cli-options)

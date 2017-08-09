@@ -16,12 +16,19 @@ def process(dump, tochange, results):
 
     with open(tochange, "rt") as f:
         headings = [x.strip("\n") for x in f.readlines()]
+        print("Read {0} subject headings, searching for them in dump...".format(len(headings)))
 
+    foundCount = 0
+
+    print(results)
     with open(dump, "rt") as i, open(results, "wt") as o:
         for line in i:
             if isYsaKeyword(line):
                 if list(set(headings).intersection(extractKeywords(line))):
                     o.write(line)
+                    print(line, end="")
+                    foundCount += 1
+    print("Found {0} obsolete headings in file.".format(foundCount))
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
